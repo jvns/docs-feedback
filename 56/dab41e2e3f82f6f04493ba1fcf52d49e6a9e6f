@@ -1,0 +1,27 @@
+main.go
+  s_28c30d09cdc662::t_76abd59ce51c8d 9
+  s_28c30d09cdc662::t_1c4fc42de41cd6 19,24
+  s_28c30d09cdc662::t_a27762b74112ff 5
+  s_28c30d09cdc662::t_e2a55daf6d9fd0 21-22
+  s_28c30d09cdc662::t_bb75e2e915e1bc 4
+  s_28c30d09cdc662::t_ddb41225e2d8bc 10
+  s_28c30d09cdc662::t_92d82a656244db 20
+  s_28c30d09cdc662::t_4660a0490e16e3 23
+  s_28c30d09cdc662::t_84692358cff17d 25-26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "56dab41e2e3f82f6f04493ba1fcf52d49e6a9e6f",
+  "prompts": {},
+  "sessions": {
+    "s_28c30d09cdc662": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7baac8c9-62e7-4eba-958d-049a7edc6e41",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
