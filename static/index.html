@@ -54,7 +54,7 @@
                    class="feedback-item"
                    @mouseenter="hover_feedback = feedback_item"
                    @mouseleave="hover_feedback = undefined"
-                   @click="active_feedback = feedback_item">
+                   @click="setActive(feedback_item)">
             <span role="img" v-html="icons[feedback_item.emoji].emoji"> </span>
             {{feedback_item.content}}
           </article>

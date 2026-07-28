@@ -107,6 +107,10 @@ const app = Vue.createApp({
       }
       this.close();
     },
+    setActive(feedback_item) {
+      anno.scrollIntoView(feedback_item.id);
+      this.active_feedback = feedback_item;
+    },
   },
 });
 for (const [c, v] of Object.entries(components)) {
