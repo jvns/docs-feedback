@@ -742,10 +742,6 @@ body>footer {
   margin-left: auto;
   padding: 2rem 1rem;
 
-  &>* {
-    margin: 2rem 0;
-  }
-
   p {
     margin: 1rem 0;
   }
