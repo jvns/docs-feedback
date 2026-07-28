@@ -1,0 +1,8 @@
+<form class="login"
+      @submit.prevent="login">
+  {{ errors }}
+  Password:
+  <input name="password" ref="password">
+  <button type="submit" class="btn"> Login
+  </button>
+</form>
