@@ -976,7 +976,7 @@ form.login {
   border-radius: 1rem;
   padding: 1rem;
   h1 {
-    font-size: var(--size-xl);
+    font-size: var(--size-2xl);
     font-weight: bold;
   }
 }

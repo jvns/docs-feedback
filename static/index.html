@@ -45,10 +45,10 @@
                  @keydown.esc="close"
                  @modal-submit="submit"
                  v-bind:feedback="active_feedback"> </Modal>
-          <div v-for="a in annotations">
-          </div>
 
-
+          <p v-if="annotations.length == 0">
+          Highlight some text to leave feedback!
+          </p>
           <article v-for="feedback_item in annotations"
                    role="button"
                    aria-label="Edit feedback"
