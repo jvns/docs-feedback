@@ -19,7 +19,7 @@ const app = Vue.createApp({
     return {
       pb: pb,
       document: undefined,
-      loggedIn: pb.authStore.isValid,
+      step: "login",
       errors: [],
       annotations: [],
       active_feedback: undefined,
@@ -28,20 +28,31 @@ const app = Vue.createApp({
   },
 
   async mounted() {
-    if (this.loggedIn) {
+    this.step = this.getStep();
+    if (this.step == "feedback") {
       await this.setupAnnotator();
     }
   },
+
   methods: {
+    getStep() {
+      if (!pb.authStore.isValid) {
+        return "login";
+      } else if (!localStorage.getItem("person_id")) {
+        return "name";
+      } else {
+        return "feedback";
+      }
+    },
     async setupAnnotator() {
-      this.loggedIn = pb.authStore.isValid;
+      const person_id = localStorage.getItem("person_id");
       this.document = await pb.collection("documents").getFirstListItem(
         'name="git-pull"',
       );
       await this.$nextTick();
 
       anno = createTextAnnotator(this.$refs.html, {
-        "user": { "id": "ldtfc30bzuf73ws", "name": "Julia" },
+        "user": { "id": person_id, "name": "Julia" },
       });
       anno.on("clickAnnotation", (annotation) => {
         this.active_feedback = toRecord(annotation);
@@ -58,10 +69,19 @@ const app = Vue.createApp({
       });
       await this.sync();
     },
+    async save_name_email() {
+      const record = await pb.collection("people").create({
+        name: this.$refs.name,
+        email: this.$refs.email,
+      });
+      localStorage.setItem("person_id", record.id);
+    },
     async sync() {
       this.loggedIn = pb.authStore.isValid;
+
+      const person_id = localStorage.getItem("person_id");
       const feedbacks = await pb.collection("feedback").getList(1, 200, {
-        filter: 'person_id = "ldtfc30bzuf73ws"',
+        filter: pb.filter("person_id = {:id}", { id: person_id }),
       });
       const annotations = feedbacks.items.map(fromRecord);
       anno.setAnnotations(annotations, replace = true);
