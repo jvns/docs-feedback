@@ -9,6 +9,10 @@ html {
   tab-size: 4;
 }
 
+form {
+  margin: 0;
+}
+
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -527,7 +531,7 @@ a {
 }
 
 nav {
-  background-color: var(--blue-400);
+  background-color: var(--pink-400);
   padding: 2.5rem 0;
   color: white;
   display: grid;
@@ -557,7 +561,7 @@ article.feedback-item {
   width: 16rem;
   cursor: pointer;
   overflow: hidden;
-  background: var(--yellow-200);
+  background: var(--pink-200);
   border: 1px solid white;
   border-radius: 0.5rem;
   padding: 0.5rem;
@@ -576,7 +580,7 @@ article.feedback-item {
     right: 0px;
     bottom: 0px;
     width: 100%;
-    background-color: var(--green-500);
+    background-color: var(--pink-500);
     padding: 0.25rem;
     text-align: center;
     color: white;
@@ -591,7 +595,7 @@ article.feedback-item {
   z-index: 10;
   border: 2px solid black;
   background-color: var(--gray-100);
-  width: 500px;
+  width: 100%;
   font-size: var(--size-base);
   line-height: var(--line-height-base);
   padding: 2rem;
@@ -608,7 +612,7 @@ article.feedback-item {
 
   .icons {
     margin: auto;
-    padding: 1rem;
+    padding: .5rem;
   }
 
   input[type=radio] {
@@ -638,7 +642,7 @@ article.feedback-item {
     margin-top: 1rem;
     margin-bottom: 1rem;
     display: block;
-    height: 16rem;
+    height: 10rem;
     width: 100%;
     border-radius: 0.25rem;
     border-width: 1px;
@@ -719,12 +723,14 @@ form#name-email {
   padding: 2rem 0;
   max-width: 600px;
   margin: auto;
+
   &>* {
     margin: 2rem 0;
   }
 }
 
 .user-feedback-page {
+  padding: 1rem;
   display: grid;
   grid-template-columns: 600px 1fr;
   max-width: 1000px;
@@ -738,13 +744,13 @@ form#name-email {
 
   .intro {
     width: 100%;
-    background-color: var(--yellow-100);
+    background-color: var(--pink-100);
     padding: 2rem;
   }
 
   form.general-feedback {
     width: 100%;
-    background-color: var(--yellow-100);
+    background-color: var(--pink-100);
     padding: 2rem;
 
     .textarea-wrapper {
@@ -783,7 +789,7 @@ form#name-email {
   line-height: var(--line-height-sm);
   display: flex;
   align-items: flex-start;
-  background-color: var(--blue-100);
+  background-color: var(--pink-100);
 
   &.admin {
     background-color: var(--purple-100);
@@ -831,7 +837,7 @@ form#name-email {
     padding: 0 0.25rem;
     font-size: var(--size-2xl);
     line-height: var(--line-height-2xl);
-    color: var(--blue-800);
+    color: var(--pink-800);
     appearance: none;
     margin: 0;
 
@@ -943,7 +949,7 @@ form.login {
   margin: 5rem auto;
 
   input {
-    background: var(--blue-100);
+    background: var(--pink-100);
     padding: .5rem;
     margin: 1rem 0;
     display: block;
@@ -952,7 +958,7 @@ form.login {
   }
 
   button.btn {
-    background: var(--blue-500);
+    background: var(--pink-500);
     width: 100%;
   }
 }
@@ -962,7 +968,41 @@ form.login {
 }
 
 .comments {
+  border-left: 5px solid var(--pink-500);
   position: sticky;
   height: 100vh;
   top: 0px;
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  h1 {
+    font-size: var(--size-xl);
+    font-weight: bold;
+  }
+}
+
+.html {
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  h1 {
+    font-size: var(--size-3xl);
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: var(--size-xl);
+    font-weight: bold;
+  }
+
+  p,
+  h1,
+  h2,
+  h3 {
+    margin: 1rem 0;
+  }
+}
+
+body {
+  background: var(--pink-100);
 }

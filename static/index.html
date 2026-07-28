@@ -35,11 +35,11 @@
     </div>
 
     <div v-else class="user-feedback-page">
-      <div ref="html" v-html="document && document.content">
+      <div class="html" ref="html" v-html="document && document.content">
       </div>
       <div style="position: relative;">
         <section class="comments">
-          <h2> Your comments </h2>
+          <h1> Your comments </h1>
           <Modal v-if="active_feedback"
                  @modal-close="close"
                  @keydown.esc="close"

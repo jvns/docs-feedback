@@ -87,9 +87,6 @@ const app = Vue.createApp({
       anno.setAnnotations(annotations, replace = true);
       this.annotations = feedbacks.items;
     },
-    testMethod() {
-      return this.message + "!";
-    },
     close() {
       this.active_feedback = undefined;
     },
