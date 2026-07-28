@@ -48,7 +48,8 @@
           <p v-if="annotations.length == 0">
             Highlight some text to leave feedback!
           </p>
-          <article v-for="feedback_item in annotations"
+          <template v-for="feedback_item in annotations">
+          <article v-if="!active_feedback || (feedback_item.id != active_feedback.id)"
                    role="button"
                    aria-label="Edit feedback"
                    class="feedback-item"
@@ -58,6 +59,7 @@
             <span role="img" v-html="icons[feedback_item.emoji].emoji"> </span>
             {{feedback_item.content}}
           </article>
+          </template>
         </section>
       </div>
     </div>
