@@ -9,8 +9,6 @@ import LoginComponent from "./components/Login";
 import * as icons from "./components/icons.json";
 import { fromRecord, toRecord } from "./util.js";
 
-
-
 const components = {
   "Modal": ModalComponent,
   "Login": LoginComponent,
