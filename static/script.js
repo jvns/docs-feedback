@@ -59,6 +59,8 @@ const app = Vue.createApp({
       });
 
       anno.on("createAnnotation", (annotation) => {
+        // immediately remove it in case we cancel the annotation
+        anno.removeAnnotation(annotation);
         annotation.id = undefined; // API should set the initial ID
         annotation.bodies = [{
           document_id: this.document.id,
