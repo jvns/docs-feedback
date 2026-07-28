@@ -5,6 +5,7 @@ const pb = new PocketBase("http://127.0.0.1:8090");
 let anno = undefined;
 
 import ModalComponent from "./components/Modal";
+import LoginComponent from "./components/Login";
 import * as icons from "./components/icons.json";
 
 function toRecord(ann) {
@@ -39,6 +40,7 @@ function fromRecord(record) {
 
 const components = {
   "Modal": ModalComponent,
+  "Login": LoginComponent,
 };
 
 const app = Vue.createApp({
@@ -55,31 +57,38 @@ const app = Vue.createApp({
   },
 
   async mounted() {
-    this.document = await pb.collection("documents").getFirstListItem(
-      'name="git-pull"',
-    );
-    await this.$nextTick();
-
-    anno = createTextAnnotator(this.$refs.html, {
-      "user": { "id": "ldtfc30bzuf73ws", "name": "Julia" },
-    });
-    await this.sync();
-    anno.on("clickAnnotation", (annotation) => {
-      this.active_feedback = toRecord(annotation);
-    });
-
-    result = anno.on("createAnnotation", (annotation) => {
-      annotation.id = undefined; // API should set the initial ID
-      annotation.bodies = [{
-        document_id: this.document.id,
-        content: "",
-      }];
-      this.active_feedback = toRecord(annotation);
-      // pb.collection("feedback").create(feedback);
-    });
+    if (this.loggedIn) {
+      await this.setupAnnotator();
+    }
   },
   methods: {
+    async setupAnnotator() {
+      this.loggedIn = pb.authStore.isValid;
+      this.document = await pb.collection("documents").getFirstListItem(
+        'name="git-pull"',
+      );
+      await this.$nextTick();
+
+      anno = createTextAnnotator(this.$refs.html, {
+        "user": { "id": "ldtfc30bzuf73ws", "name": "Julia" },
+      });
+      anno.on("clickAnnotation", (annotation) => {
+        this.active_feedback = toRecord(annotation);
+      });
+
+      anno.on("createAnnotation", (annotation) => {
+        annotation.id = undefined; // API should set the initial ID
+        annotation.bodies = [{
+          document_id: this.document.id,
+          content: "",
+        }];
+        this.active_feedback = toRecord(annotation);
+        // pb.collection("feedback").create(feedback);
+      });
+      await this.sync();
+    },
     async sync() {
+      this.loggedIn = pb.authStore.isValid;
       const feedbacks = await pb.collection("feedback").getList(1, 200, {
         filter: 'person_id = "ldtfc30bzuf73ws"',
       });
@@ -102,20 +111,9 @@ const app = Vue.createApp({
       } else {
         await pb.collection("feedback").create(this.active_feedback);
       }
+      this.active_feedback.just_saved = true;
       await this.sync();
       this.close();
-    },
-    async login() {
-      const password = this.$refs.password.value;
-      try {
-        await pb.collection("users").authWithPassword(
-          "anonymous",
-          password,
-        );
-      } catch {
-        this.errors = ["wrong password"];
-      }
-      this.loggedIn = pb.authStore.isValid;
     },
   },
 });
