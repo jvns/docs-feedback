@@ -32,14 +32,28 @@
       </div>
       <div style="position: relative;">
       <section class="comments">
-        <h2> Your commentss </h2>
+        <h2> Your comments </h2>
         <Modal v-if="active_feedback"
                @modal-close="close"
                @keydown.esc="close"
                @modal-submit="submit"
                v-bind:feedback="active_feedback" > </Modal>
-              {{ annotations }}
+              <div v-for="a in annotations">
+              </div>
 
+
+    <article v-for="feedback_item in annotations"
+             role="button"
+             aria-label="Edit feedback"
+             class="feedback-item"
+             @mouseenter="hover_feedback = feedback_item"
+             @mouseleave="hover_feedback = undefined"
+             @click="active_feedback = feedback_item">
+      <span role="img" v-html="icons[feedback_item.emoji].emoji"> </span>
+      {{feedback_item.content}}
+      <!-- <Checkmark v-if="feedback_item.just_saved"> -->
+      <!-- </Checkmark> -->
+    </article>
       </section>
       </div>
     </div>

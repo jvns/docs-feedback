@@ -5,6 +5,7 @@ const pb = new PocketBase("http://127.0.0.1:8090");
 let anno = undefined;
 
 import ModalComponent from "./components/Modal";
+import * as icons from "./components/icons.json";
 
 function toRecord(ann) {
   const body = ann.bodies[0];
@@ -49,6 +50,7 @@ const app = Vue.createApp({
       errors: [],
       annotations: [],
       active_feedback: undefined,
+      icons: icons,
     };
   },
 
@@ -83,7 +85,7 @@ const app = Vue.createApp({
       });
       const annotations = feedbacks.items.map(fromRecord);
       anno.setAnnotations(annotations, replace = true);
-      this.annotations = annotations;
+      this.annotations = feedbacks.items;
     },
     testMethod() {
       return this.message + "!";
