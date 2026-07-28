@@ -56,19 +56,16 @@ const app = Vue.createApp({
       'name="git-pull"',
     );
     await this.$nextTick();
-    const feedbacks = await pb.collection("feedback").getList(1, 200, {
-      filter: 'person_id = "ldtfc30bzuf73ws"',
-    });
-    const annotations = feedbacks.items.map(fromRecord);
-    console.log(annotations);
 
     this.anno = createTextAnnotator(this.$refs.html, {
       "user": { "id": "ldtfc30bzuf73ws", "name": "Julia" },
     });
-    this.anno.setAnnotations(annotations, replace = true);
+    await this.refresh();
+    this.anno.setUserSelectAction((annotation) => {
+      this.active_feedback = toRecord(annotation);
+    });
 
-    this.anno = this.anno.on("createAnnotation", (annotation) => {
-      console.log("new annotation", annotation);
+    result = this.anno.on("createAnnotation", (annotation) => {
       annotation.id = undefined; // API should set the initial ID
       annotation.bodies = [{
         emoji: "confused",
@@ -80,18 +77,30 @@ const app = Vue.createApp({
     });
   },
   methods: {
+    async refresh() {
+      console.log("refreshing");
+      const feedbacks = await pb.collection("feedback").getList(1, 200, {
+        filter: 'person_id = "ldtfc30bzuf73ws"',
+      });
+      const annotations = feedbacks.items.map(fromRecord);
+      this.anno.setAnnotations(annotations, replace = true);
+    },
     testMethod() {
       return this.message + "!";
     },
     close() {
       this.active_feedback = undefined;
     },
-    submit() {
+    async submit() {
       if (this.active_feedback.id) {
-        pb.collection("feedback").update(this.active_feedback);
+        await pb.collection("feedback").update(
+          this.active_feedback.id,
+          this.active_feedback,
+        );
       } else {
-        pb.collection("feedback").create(this.active_feedback);
+        await pb.collection("feedback").create(this.active_feedback);
       }
+      await this.refresh();
       this.close();
     },
     async login() {
