@@ -89,6 +89,8 @@ const app = Vue.createApp({
     },
     close() {
       this.active_feedback = undefined;
+      window.getSelection().empty();
+      this.sync();
     },
     async submit() {
       if (this.active_feedback.id) {
@@ -99,7 +101,6 @@ const app = Vue.createApp({
       } else {
         await pb.collection("feedback").create(this.active_feedback);
       }
-      await this.sync();
       this.close();
     },
   },
