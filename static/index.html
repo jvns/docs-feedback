@@ -15,10 +15,12 @@
 </head>
 
 <body>
+    <nav class="squiggle-bottom">
+    </nav>
   <main id="app">
     {{ errors }}
 
-    <form v-if="!loggedIn" @submit.prevent="login">
+    <form class="login" v-if="!loggedIn" @submit.prevent="login">
       Password:
       <input name="password" ref="password">
       <button type="submit" class="btn"> Login
@@ -29,6 +31,12 @@
       </div>
     </div>
   </main>
+    <footer class="squiggle-top">
+    this feedback site was made by <a href="https://marieflanagan.com/">Marie
+      Clare LeBlanc Flanagan</a> and <a href="https://jvns.ca">Julia Evans</a>.
+    Heavily inspired by <a href="https://helpthisbook.com/">Help This
+      Book</a>.
+  </footer>
 </body>
 
 </html>
