@@ -1,9 +1,8 @@
 const pb = new PocketBase("http://127.0.0.1:8090");
-window.process = { browser: true, env: { ENVIRONMENT: "BROWSER" } };
+window.process = { browser: true, env: { ENVIRONMENT: "BROWSER" } }; // Recogito needs this for some reason, idk why
 const { createTextAnnotator } = RecogitoJS;
 
-import ModalComponent from './components/Modal';
-
+import ModalComponent from "./components/Modal";
 
 function toRecord(ann) {
   const body = ann.bodies[0];
@@ -36,8 +35,8 @@ function fromRecord(record) {
 }
 
 const components = {
-  'Modal': ModalComponent,
- };
+  "Modal": ModalComponent,
+};
 
 const app = Vue.createApp({
   data() {
@@ -93,23 +92,23 @@ const app = Vue.createApp({
       } else {
         pb.collection("feedback").create(this.active_feedback);
       }
-      this.close()
+      this.close();
     },
     async login() {
       const password = this.$refs.password.value;
       try {
-      await pb.collection("users").authWithPassword(
-        "anonymous",
-        password,
-      );
+        await pb.collection("users").authWithPassword(
+          "anonymous",
+          password,
+        );
       } catch {
-        this.errors = ['wrong password'];
+        this.errors = ["wrong password"];
       }
       this.loggedIn = pb.authStore.isValid;
     },
   },
 });
 for (const [c, v] of Object.entries(components)) {
- app.component(c, v);
+  app.component(c, v);
 }
 app.mount("#app");
