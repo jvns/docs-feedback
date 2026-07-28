@@ -2,6 +2,9 @@ const pb = new PocketBase("http://127.0.0.1:8090");
 window.process = { browser: true, env: { ENVIRONMENT: "BROWSER" } };
 const { createTextAnnotator } = RecogitoJS;
 
+import ModalComponent from './components/Modal';
+
+
 function toRecord(ann) {
   const body = ann.bodies[0];
   return {
@@ -32,6 +35,10 @@ function fromRecord(record) {
   };
 }
 
+const components = {
+  'Modal': ModalComponent,
+ };
+
 const app = Vue.createApp({
   data() {
     return {
@@ -40,6 +47,7 @@ const app = Vue.createApp({
       document: undefined,
       loggedIn: pb.authStore.isValid,
       errors: [],
+      active_feedback: undefined,
     };
   },
 
@@ -67,13 +75,16 @@ const app = Vue.createApp({
         document_id: this.document.id,
         content: "test",
       }];
-      const feedback = toRecord(annotation);
-      pb.collection("feedback").create(feedback);
+      this.active_feedback = toRecord(annotation);
+      // pb.collection("feedback").create(feedback);
     });
   },
   methods: {
     testMethod() {
       return this.message + "!";
+    },
+    close() {
+      this.active_feedback = undefined;
     },
     async login() {
       const password = this.$refs.password.value;
@@ -89,4 +100,7 @@ const app = Vue.createApp({
     },
   },
 });
+for (const [c, v] of Object.entries(components)) {
+ app.component(c, v);
+}
 app.mount("#app");

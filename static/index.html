@@ -7,7 +7,7 @@
   <script src="/js/pocketbase.umd.js" defer></script>
   <link rel="stylesheet" href="/css/text-annotator.css">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <script src="bundle.js" defer></script>
   <meta charset="utf-8" />
   <!-- make the page responsive (though I don't always want this) -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,22 +15,28 @@
 </head>
 
 <body>
-    <nav class="squiggle-bottom">
-    </nav>
+  <nav class="squiggle-bottom">
+  </nav>
   <main id="app">
-    <form  v-if="!loggedIn" class="login" @submit.prevent="login">
+    <form v-if="!loggedIn"
+          class="login"
+          @submit.prevent="login">
       {{ errors }}
       Password:
       <input name="password" ref="password">
       <button type="submit" class="btn"> Login
       </button>
     </form>
-    <div v-else>
-      <div class="user-feedback-page" ref="html" v-html="document && document.content">
+    <div v-else class="user-feedback-page">
+      <div ref="html" v-html="document && document.content">
       </div>
+      <section class="comments">
+      <h2> Your comments </h2>
+      <Modal v-if="active_feedback" v-bind:feedback="active_feedback" />
+      </section>
     </div>
   </main>
-    <footer class="squiggle-top">
+  <footer class="squiggle-top">
     this feedback site was made by <a href="https://marieflanagan.com/">Marie
       Clare LeBlanc Flanagan</a> and <a href="https://jvns.ca">Julia Evans</a>.
     Heavily inspired by <a href="https://helpthisbook.com/">Help This
