@@ -111,7 +111,6 @@ const app = Vue.createApp({
       } else {
         await pb.collection("feedback").create(this.active_feedback);
       }
-      this.active_feedback.just_saved = true;
       await this.sync();
       this.close();
     },
