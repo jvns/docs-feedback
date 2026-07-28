@@ -60,7 +60,7 @@ const app = Vue.createApp({
     this.anno = createTextAnnotator(this.$refs.html, {
       "user": { "id": "ldtfc30bzuf73ws", "name": "Julia" },
     });
-    await this.refresh();
+    await this.sync();
     this.anno.setUserSelectAction((annotation) => {
       this.active_feedback = toRecord(annotation);
     });
@@ -77,8 +77,7 @@ const app = Vue.createApp({
     });
   },
   methods: {
-    async refresh() {
-      console.log("refreshing");
+    async sync() {
       const feedbacks = await pb.collection("feedback").getList(1, 200, {
         filter: 'person_id = "ldtfc30bzuf73ws"',
       });
@@ -100,7 +99,7 @@ const app = Vue.createApp({
       } else {
         await pb.collection("feedback").create(this.active_feedback);
       }
-      await this.refresh();
+      await this.sync();
       this.close();
     },
     async login() {
