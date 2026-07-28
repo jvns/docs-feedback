@@ -44,9 +44,11 @@ const app = Vue.createApp({
     },
     async setupAnnotator() {
       const person_id = localStorage.getItem("person_id");
+      const doc_name = "git-pull";
       this.document = await pb.collection("documents").getFirstListItem(
-        'name="git-pull"',
+        pb.filter('name={:id}', { id: doc_name }),
       );
+      document.title = "feedback: " + doc_name;
       await this.$nextTick();
 
       anno = createTextAnnotator(this.$refs.html, {
@@ -74,7 +76,7 @@ const app = Vue.createApp({
         // email: this.$refs.email,
       });
       localStorage.setItem("person_id", record.id);
-      this.step = 'feedback';
+      this.step = "feedback";
       await this.setupAnnotator();
     },
     async sync() {
