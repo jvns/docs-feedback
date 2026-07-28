@@ -1,0 +1,48 @@
+<div :key="feedback.zine_page"
+     tabindex="-1"
+     role="dialog"
+     class="modal">
+  <button aria-label="Close" @click="$parent.close()"> ✕ </button>
+  <form>
+    <div class="icons" :style="feedback.icon && 'display: flex'">
+      <span v-for="name in icons.names">
+        <input type="radio"
+               v-bind:id="name + '-' + page_id"
+               v-bind:value="name"
+               v-model="feedback.icon">
+        <label :style="feedback.icon ? 'display: inline; margin-right: 1rem;' : 'display: block'"
+               class="emoji"
+               tabindex="0"
+               v-bind:for="name + '-' + page_id">
+          <span role="img" v-html="icons[name].emoji"></span>
+          <span v-if="!feedback.icon" class="icon-desc">
+            {{icons[name].text}}
+          </span>
+        </label>
+      </span>
+    </div>
+    <div v-if="feedback.icon">
+      <div v-if="admin">
+        <!-- to manually enter notes from social media -->
+        <label for="name">Name</label> <br>
+        <input type="text"
+               v-model="feedback.name"
+               class="p-2"
+               id="name">
+      </div>
+      <textarea ref="content"
+                v-model="feedback.content"
+                v-bind:placeholder="icons[feedback.icon].prompt"></textarea>
+      <button v-if="feedback.id !== undefined"
+              class="btn"
+              @click="$parent.saveFeedback($event)">
+        Update
+      </button>
+      <button v-else
+              class="btn"
+              @click="$parent.saveFeedback($event)">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

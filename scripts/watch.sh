@@ -1,1 +1,1 @@
-git ls-files | entr -r go run . serve --dev
+git ls-files | entr -r bash scripts/build.sh
