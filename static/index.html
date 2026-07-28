@@ -6,6 +6,7 @@
   <script src="/js/text-annotator.umd.js" defer></script>
   <script src="/js/pocketbase.umd.js" defer></script>
   <link rel="stylesheet" href="/css/text-annotator.css">
+  <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
   <meta charset="utf-8" />
   <!-- make the page responsive (though I don't always want this) -->
@@ -14,16 +15,20 @@
 </head>
 
 <body>
-  <div id="app">
+  <main id="app">
     {{ errors }}
+
     <form v-if="!loggedIn" @submit.prevent="login">
-      Password: <input ref="password">
+      Password:
+      <input name="password" ref="password">
+      <button type="submit" class="btn"> Login
+      </button>
     </form>
     <div v-else>
       <div ref="html" v-html="document && document.content">
       </div>
     </div>
-  </div>
+  </main>
 </body>
 
 </html>
