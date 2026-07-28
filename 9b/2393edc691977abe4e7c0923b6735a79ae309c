@@ -1,0 +1,22 @@
+static/components/Modal.html
+  s_e93c4d3660ffcc::t_58f1fe52d86b32 4
+  s_e93c4d3660ffcc::t_68f552697d28f4 35-37
+static/components/Modal.js
+  s_e93c4d3660ffcc::t_622121df848f89 6-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "9b2393edc691977abe4e7c0923b6735a79ae309c",
+  "prompts": {},
+  "sessions": {
+    "s_e93c4d3660ffcc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b85033ae-f8ee-421f-9ed8-8f400c33ba45",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
