@@ -67,7 +67,6 @@ const app = Vue.createApp({
           content: "",
         }];
         this.active_feedback = toRecord(annotation);
-        // pb.collection("feedback").create(feedback);
       });
       await this.sync();
     },
