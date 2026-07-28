@@ -683,7 +683,7 @@ article.feedback-item {
 form#name-email {
   position: relative;
   border: 2px solid var(--gray-200);
-  background-color: var(--blue-300);
+  background-color: var(--pink-300);
   padding: 1rem;
   display: grid;
   row-gap: 1rem;
@@ -702,7 +702,7 @@ form#name-email {
     border-radius: 0.25rem;
     border-width: 1px;
     border-color: var(--gray-200);
-    background-color: var(--blue-100);
+    background-color: var(--pink-100);
     padding: 0.5rem;
     margin-top: 1rem;
   }

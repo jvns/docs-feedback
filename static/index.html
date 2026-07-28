@@ -18,24 +18,22 @@
   <nav class="squiggle-bottom">
   </nav>
   <main id="app">
-    <Login v-bind:pb="pb"
-           v-if="step == 'login'"
-           @success="setupAnnotator"> </Login>
-
-    <div v-else-if="step == 'name'" class="email-page">
+    <div v-if="step == 'name'" class="email-page">
       <p>
-        First, please enter your name and (optionally) email so that I know who
+        First, please enter your name so that we know who
         the feedback is from.
       </p>
       <form id="name-email" @submit.prevent="save_name_email">
         <label for="name">Name:</label><input id="name" ref="name">
-        <label for="email">Email:</label><input id="email" ref="email">
+        <!-- <label for="email">Email:</label><input id="email" ref="email"> -->
         <button class="btn">Submit</button>
       </form>
     </div>
 
     <div v-else class="user-feedback-page">
-      <div class="html" ref="html" v-html="document && document.content">
+      <div class="html"
+           ref="html"
+           v-html="document && document.content">
       </div>
       <div style="position: relative;">
         <section class="comments">
@@ -47,7 +45,7 @@
                  v-bind:feedback="active_feedback"> </Modal>
 
           <p v-if="annotations.length == 0">
-          Highlight some text to leave feedback!
+            Highlight some text to leave feedback!
           </p>
           <article v-for="feedback_item in annotations"
                    role="button"

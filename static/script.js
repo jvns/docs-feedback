@@ -19,7 +19,7 @@ const app = Vue.createApp({
     return {
       pb: pb,
       document: undefined,
-      step: "login",
+      step: "name",
       errors: [],
       annotations: [],
       active_feedback: undefined,
@@ -36,9 +36,7 @@ const app = Vue.createApp({
 
   methods: {
     getStep() {
-      if (!pb.authStore.isValid) {
-        return "login";
-      } else if (!localStorage.getItem("person_id")) {
+      if (!localStorage.getItem("person_id")) {
         return "name";
       } else {
         return "feedback";
@@ -73,9 +71,11 @@ const app = Vue.createApp({
     async save_name_email() {
       const record = await pb.collection("people").create({
         name: this.$refs.name,
-        email: this.$refs.email,
+        // email: this.$refs.email,
       });
       localStorage.setItem("person_id", record.id);
+      this.step = 'feedback';
+      await this.setupAnnotator();
     },
     async sync() {
       this.loggedIn = pb.authStore.isValid;
