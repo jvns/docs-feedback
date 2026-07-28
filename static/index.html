@@ -32,12 +32,14 @@
       </div>
       <div style="position: relative;">
       <section class="comments">
-        <h2> Your comments </h2>
+        <h2> Your commentss </h2>
         <Modal v-if="active_feedback"
                @modal-close="close"
                @keydown.esc="close"
                @modal-submit="submit"
-               v-bind:feedback="active_feedback" />
+               v-bind:feedback="active_feedback" > </Modal>
+              {{ annotations }}
+
       </section>
       </div>
     </div>

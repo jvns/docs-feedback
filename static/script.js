@@ -1,6 +1,8 @@
-const pb = new PocketBase("http://127.0.0.1:8090");
 window.process = { browser: true, env: { ENVIRONMENT: "BROWSER" } }; // Recogito needs this for some reason, idk why
 const { createTextAnnotator } = RecogitoJS;
+
+const pb = new PocketBase("http://127.0.0.1:8090");
+let anno = undefined;
 
 import ModalComponent from "./components/Modal";
 
@@ -42,11 +44,10 @@ const app = Vue.createApp({
   data() {
     return {
       pb: pb,
-      anno: undefined,
-      annotations: [],
       document: undefined,
       loggedIn: pb.authStore.isValid,
       errors: [],
+      annotations: [],
       active_feedback: undefined,
     };
   },
@@ -57,15 +58,15 @@ const app = Vue.createApp({
     );
     await this.$nextTick();
 
-    this.anno = createTextAnnotator(this.$refs.html, {
+    anno = createTextAnnotator(this.$refs.html, {
       "user": { "id": "ldtfc30bzuf73ws", "name": "Julia" },
     });
     await this.sync();
-    this.anno.on("clickAnnotation", (annotation) => {
+    anno.on("clickAnnotation", (annotation) => {
       this.active_feedback = toRecord(annotation);
     });
 
-    result = this.anno.on("createAnnotation", (annotation) => {
+    result = anno.on("createAnnotation", (annotation) => {
       annotation.id = undefined; // API should set the initial ID
       annotation.bodies = [{
         document_id: this.document.id,
@@ -81,7 +82,8 @@ const app = Vue.createApp({
         filter: 'person_id = "ldtfc30bzuf73ws"',
       });
       const annotations = feedbacks.items.map(fromRecord);
-      this.anno.setAnnotations(annotations, replace = true);
+      anno.setAnnotations(annotations, replace = true);
+      this.annotations = annotations;
     },
     testMethod() {
       return this.message + "!";
