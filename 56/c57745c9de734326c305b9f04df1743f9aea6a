@@ -1,0 +1,19 @@
+static/index.html
+  s_601d4bd12034fa::t_ba335e087f74d4 21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "56c57745c9de734326c305b9f04df1743f9aea6a",
+  "prompts": {},
+  "sessions": {
+    "s_601d4bd12034fa": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "18d3d3fb-26bf-4cd0-b129-4dbe1821140f",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
