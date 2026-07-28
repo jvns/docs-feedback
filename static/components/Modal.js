@@ -4,7 +4,7 @@ import * as icons from "./icons.json";
 export default {
   template: template,
   props: ["feedback", "page_id", "admin"],
-  emits: ["close", "submit"],
+  emits: ["modal-close", "modal-submit"],
   mounted: function () {
     this.$el.focus();
     // focus the content when it comes into view
