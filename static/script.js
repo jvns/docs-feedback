@@ -38,6 +38,8 @@ const app = Vue.createApp({
       anno: undefined,
       annotations: [],
       document: undefined,
+      loggedIn: pb.authStore.isValid,
+      errors: [],
     };
   },
 
@@ -46,7 +48,7 @@ const app = Vue.createApp({
       'name="git-pull"',
     );
     await this.$nextTick();
-    const feedbacks = await pb.collection('feedback').getList(1, 200, {
+    const feedbacks = await pb.collection("feedback").getList(1, 200, {
       filter: 'person_id = "ldtfc30bzuf73ws"',
     });
     const annotations = feedbacks.items.map(fromRecord);
@@ -60,14 +62,30 @@ const app = Vue.createApp({
     this.anno = this.anno.on("createAnnotation", (annotation) => {
       console.log("new annotation", annotation);
       annotation.id = undefined; // API should set the initial ID
-      annotation.bodies = [{emoji: 'confused', document_id: this.document.id, content: 'test'}];
+      annotation.bodies = [{
+        emoji: "confused",
+        document_id: this.document.id,
+        content: "test",
+      }];
       const feedback = toRecord(annotation);
-      pb.collection('feedback').create(feedback);
+      pb.collection("feedback").create(feedback);
     });
   },
   methods: {
     testMethod() {
       return this.message + "!";
+    },
+    async login() {
+      const password = this.$refs.password.value;
+      try {
+      await pb.collection("users").authWithPassword(
+        "anonymous",
+        password,
+      );
+      } catch {
+        this.errors = ['wrong password'];
+      }
+      this.loggedIn = pb.authStore.isValid;
     },
   },
 });
