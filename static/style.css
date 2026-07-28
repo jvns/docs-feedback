@@ -1010,3 +1010,6 @@ form.login {
   }
 }
 
+:root {
+  --image-width: 600px;
+}
