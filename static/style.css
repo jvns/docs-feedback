@@ -741,6 +741,7 @@ body>footer {
   grid-template-columns: 600px 1fr;
   max-width: 1000px;
   margin: auto;
+  gap: 1rem;
 
   p {
     margin: 1rem 0;
@@ -1008,4 +1009,10 @@ form.login {
 
 :root {
   --image-width: 600px;
+}
+
+.comments {
+  position: sticky;
+  height: 100vh;
+  top: 0px;
 }

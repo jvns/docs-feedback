@@ -68,9 +68,8 @@ const app = Vue.createApp({
     result = this.anno.on("createAnnotation", (annotation) => {
       annotation.id = undefined; // API should set the initial ID
       annotation.bodies = [{
-        emoji: "confused",
         document_id: this.document.id,
-        content: "test",
+        content: "",
       }];
       this.active_feedback = toRecord(annotation);
       // pb.collection("feedback").create(feedback);

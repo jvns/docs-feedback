@@ -30,6 +30,7 @@
     <div v-else class="user-feedback-page">
       <div ref="html" v-html="document && document.content">
       </div>
+      <div style="position: relative;">
       <section class="comments">
         <h2> Your comments </h2>
         <Modal v-if="active_feedback"
@@ -38,6 +39,7 @@
                @modal-submit="submit"
                v-bind:feedback="active_feedback" />
       </section>
+      </div>
     </div>
   </main>
   <footer class="squiggle-top">
