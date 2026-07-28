@@ -34,6 +34,7 @@
         <h2> Your comments </h2>
         <Modal v-if="active_feedback"
                @modal-close="close"
+               @keydown.esc="close"
                @modal-submit="submit"
                v-bind:feedback="active_feedback" />
       </section>
