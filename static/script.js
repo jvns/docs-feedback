@@ -23,6 +23,7 @@ const app = Vue.createApp({
       errors: [],
       annotations: [],
       active_feedback: undefined,
+      hover_feedback: undefined,
       icons: icons,
     };
   },
