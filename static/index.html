@@ -31,8 +31,11 @@
       <div ref="html" v-html="document && document.content">
       </div>
       <section class="comments">
-      <h2> Your comments </h2>
-      <Modal v-if="active_feedback" v-bind:pb="pb" v-bind:feedback="active_feedback" />
+        <h2> Your comments </h2>
+        <Modal v-if="active_feedback"
+               @modal-close="close"
+               @modal-submit="submit"
+               v-bind:feedback="active_feedback" />
       </section>
     </div>
   </main>

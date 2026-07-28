@@ -1,7 +1,7 @@
 <div tabindex="-1"
      role="dialog"
      class="modal">
-  <button aria-label="Close" @click="$parent.close()"> ✕ </button>
+  <button aria-label="Close" @click="$emit('modal-close')"> ✕ </button>
   <form>
     <div class="icons" :style="feedback.emoji && 'display: flex'">
       <span v-for="name in icons.names">
@@ -32,15 +32,9 @@
       <textarea ref="content"
                 v-model="feedback.content"
                 v-bind:placeholder="icons[feedback.emoji].prompt"></textarea>
-      <button v-if="feedback.id !== undefined"
-              class="btn"
-              @click.prevent='update'>
-        Update
-      </button>
-      <button v-else
-              class="btn"
-              @click.prevent="create">
-        Submit
+      <button class="btn"
+              @click.prevent="$emit('modal-submit')">
+        {{ feedback.id !== undefined ? 'Update' : 'Submit' }}
       </button>
     </div>
   </form>

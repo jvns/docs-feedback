@@ -3,7 +3,8 @@ import * as icons from "./icons.json";
 
 export default {
   template: template,
-  props: ["feedback", "page_id", "admin", "pb"],
+  props: ["feedback", "page_id", "admin"],
+  emits: ["close", "submit"],
   mounted: function () {
     this.$el.focus();
     // focus the content when it comes into view
@@ -14,14 +15,6 @@ export default {
       }
     });
     observer.observe(this.$el, { childList: true, subtree: true });
-  },
-  methods: {
-    update() {
-      this.pb.collection("feedback").update(this.feedback);
-    },
-    create() {
-      this.pb.collection("feedback").create(this.feedback);
-    },
   },
   data() {
     return {

@@ -87,6 +87,14 @@ const app = Vue.createApp({
     close() {
       this.active_feedback = undefined;
     },
+    submit() {
+      if (this.active_feedback.id) {
+        pb.collection("feedback").update(this.active_feedback);
+      } else {
+        pb.collection("feedback").create(this.active_feedback);
+      }
+      this.close()
+    },
     async login() {
       const password = this.$refs.password.value;
       try {
