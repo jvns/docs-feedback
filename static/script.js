@@ -36,6 +36,7 @@ const app = Vue.createApp({
   data() {
     return {
       anno: undefined,
+      annotations: [],
       document: undefined,
     };
   },
@@ -45,10 +46,16 @@ const app = Vue.createApp({
       'name="git-pull"',
     );
     await this.$nextTick();
+    const feedbacks = await pb.collection('feedback').getList(1, 200, {
+      filter: 'person_id = "ldtfc30bzuf73ws"',
+    });
+    const annotations = feedbacks.items.map(fromRecord);
+    console.log(annotations);
 
     this.anno = createTextAnnotator(this.$refs.html, {
       "user": { "id": "ldtfc30bzuf73ws", "name": "Julia" },
     });
+    this.anno.setAnnotations(annotations, replace = true);
 
     this.anno = this.anno.on("createAnnotation", (annotation) => {
       console.log("new annotation", annotation);
