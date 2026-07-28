@@ -61,7 +61,7 @@ const app = Vue.createApp({
       "user": { "id": "ldtfc30bzuf73ws", "name": "Julia" },
     });
     await this.sync();
-    this.anno.setUserSelectAction((annotation) => {
+    this.anno.on("clickAnnotation", (annotation) => {
       this.active_feedback = toRecord(annotation);
     });
 
