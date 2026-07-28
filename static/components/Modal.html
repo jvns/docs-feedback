@@ -3,24 +3,24 @@
      class="modal">
   <button aria-label="Close" @click="$parent.close()"> ✕ </button>
   <form>
-    <div class="icons" :style="feedback.icon && 'display: flex'">
+    <div class="icons" :style="feedback.emoji && 'display: flex'">
       <span v-for="name in icons.names">
         <input type="radio"
                v-bind:id="name + '-' + page_id"
                v-bind:value="name"
-               v-model="feedback.icon">
-        <label :style="feedback.icon ? 'display: inline; margin-right: 1rem;' : 'display: block'"
+               v-model="feedback.emoji">
+        <label :style="feedback.emoji ? 'display: inline; margin-right: 1rem;' : 'display: block'"
                class="emoji"
                tabindex="0"
                v-bind:for="name + '-' + page_id">
           <span role="img" v-html="icons[name].emoji"></span>
-          <span v-if="!feedback.icon" class="icon-desc">
+          <span v-if="!feedback.emoji" class="icon-desc">
             {{icons[name].text}}
           </span>
         </label>
       </span>
     </div>
-    <div v-if="feedback.icon">
+    <div v-if="feedback.emoji">
       <div v-if="admin">
         <!-- to manually enter notes from social media -->
         <label for="name">Name</label> <br>
@@ -31,15 +31,15 @@
       </div>
       <textarea ref="content"
                 v-model="feedback.content"
-                v-bind:placeholder="icons[feedback.icon].prompt"></textarea>
+                v-bind:placeholder="icons[feedback.emoji].prompt"></textarea>
       <button v-if="feedback.id !== undefined"
               class="btn"
-              @click="$parent.saveFeedback($event)">
+              @click.prevent='update'>
         Update
       </button>
       <button v-else
               class="btn"
-              @click="$parent.saveFeedback($event)">
+              @click.prevent="create">
         Submit
       </button>
     </div>

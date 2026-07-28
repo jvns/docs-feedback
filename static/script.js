@@ -42,6 +42,7 @@ const components = {
 const app = Vue.createApp({
   data() {
     return {
+      pb: pb,
       anno: undefined,
       annotations: [],
       document: undefined,
