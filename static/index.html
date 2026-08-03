@@ -40,7 +40,7 @@
         <section class="comments"
         >
           <h1> Your comments </h1>
-          <Modal v-if="active_feedback"
+          <Modal v-if="active_feedback && !active_feedback.id"
                  @modal-close="close"
                  @keydown.esc="close"
                  @modal-submit="submit"
@@ -50,13 +50,20 @@
             Highlight some text to leave feedback!
           </p>
           <template v-for="feedback_item in annotations">
-          <article v-if="!active_feedback || (feedback_item.id != active_feedback.id)"
+          <Modal v-if="active_feedback && active_feedback.id == feedback_item.id"
+                 @modal-close="close"
+                 @keydown.esc="close"
+                 @modal-submit="submit"
+                 v-bind:feedback="active_feedback"> </Modal>
+
+          <article v-else
                    role="button"
                    aria-label="Edit feedback"
                    class="feedback-item"
                    @mouseenter="hover_feedback = feedback_item"
                    @mouseleave="hover_feedback = undefined"
                    @click="setActive(feedback_item)">
+
             <span role="img" v-html="icons[feedback_item.emoji].emoji"> </span>
             {{feedback_item.content}}
           </article>
