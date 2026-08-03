@@ -106,6 +106,7 @@ const app = Vue.createApp({
       const feedbacks = await pb.collection("feedback").getList(1, 200, {
         filter: pb.filter("person_id = {:id}", { id: person_id }),
       });
+      feedbacks.items.sort((a, b) => a.selector[0].start - b.selector[0].start);
       const annotations = feedbacks.items.map(fromRecord);
       anno.setAnnotations(annotations, replace = true);
       this.annotations = feedbacks.items;
