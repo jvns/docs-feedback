@@ -720,14 +720,23 @@ form#name-email {
 }
 
 .email-page {
-  padding: 2rem 0;
-  max-width: 600px;
-  margin: auto;
-
   &>* {
     margin: 2rem 0;
   }
+
+  max-width: 600px;
+  margin: auto;
+  position: fixed;
+  max-width: 600px;
+  width: 100%;
+  background: white;
+  border: 1px solid black;
+
+  &::backdrop {
+    background: rgba(255, 231, 200, 0.9);
+  }
 }
+body:has(dialog[open]) {overflow: hidden}
 
 .user-feedback-page {
   padding: 1rem;
@@ -975,6 +984,7 @@ form.login {
   background: white;
   border-radius: 1rem;
   padding: 1rem;
+
   h1 {
     font-size: var(--size-2xl);
     font-weight: bold;
@@ -985,6 +995,7 @@ form.login {
   background: white;
   border-radius: 1rem;
   padding: 1rem;
+
   h1 {
     font-size: var(--size-3xl);
     font-weight: bold;

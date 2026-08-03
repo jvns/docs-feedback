@@ -19,7 +19,7 @@
   <nav class="squiggle-bottom">
   </nav>
   <main id="app">
-    <div v-if="step == 'name'" class="email-page">
+    <dialog ref="dialog" v-if="step == 'name'" class="email-page">
       <p>
         First, please enter your name so that we know who
         the feedback is from.
@@ -29,9 +29,9 @@
         <!-- <label for="email">Email:</label><input id="email" ref="email"> -->
         <button class="btn">Submit</button>
       </form>
-    </div>
+    </dialog>
 
-    <div v-else class="user-feedback-page">
+    <div class="user-feedback-page">
       <div class="html"
            ref="html"
            v-html="document && document.content">

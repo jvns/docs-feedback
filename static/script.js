@@ -30,6 +30,10 @@ const app = Vue.createApp({
 
   async mounted() {
     this.step = this.getStep();
+    await this.getDocument();
+    if (this.step == "name") {
+      this.$refs.dialog.showModal();
+    }
     if (this.step == "feedback") {
       await this.setupAnnotator();
     }
@@ -43,14 +47,16 @@ const app = Vue.createApp({
         return "feedback";
       }
     },
-    async setupAnnotator() {
-      const person_id = localStorage.getItem("person_id");
+    async getDocument() {
       const doc_name = "git-pull";
       this.document = await pb.collection("documents").getFirstListItem(
-        pb.filter('name={:id}', { id: doc_name }),
+        pb.filter("name={:id}", { id: doc_name }),
       );
       document.title = "feedback: " + doc_name;
       await this.$nextTick();
+    },
+    async setupAnnotator() {
+      const person_id = localStorage.getItem("person_id");
 
       anno = createTextAnnotator(this.$refs.html, {
         "user": { "id": person_id, "name": "Julia" },
