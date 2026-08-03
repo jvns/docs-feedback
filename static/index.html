@@ -60,6 +60,7 @@
                    role="button"
                    aria-label="Edit feedback"
                    class="feedback-item"
+                  :style="{opacity: active_feedback ? '0.2': 1}"
                    @mouseenter="hover_feedback = feedback_item"
                    @mouseleave="hover_feedback = undefined"
                    @click="setActive(feedback_item)">
