@@ -11,6 +11,10 @@ const components = {
 
 const app = Vue.createApp({});
 
+/* for testing */
+window._components = components;
+window._icons = icons;
+
 app.config.globalProperties.icons = icons;
 for (const [c, v] of Object.entries(components)) {
   app.component(c, v);

@@ -2,6 +2,9 @@ import template from "./UserFeedback.html";
 
 import { fromRecord, toRecord } from "../util.js";
 
+import PocketBase from "../js/pocketbase.umd.js";
+import RecogitoJS from "../js/text-annotator.umd.js";
+
 window.process = { browser: true, env: { ENVIRONMENT: "BROWSER" } }; // Recogito needs this for some reason, idk why
 const { createTextAnnotator } = RecogitoJS;
 const pb = new PocketBase("http://127.0.0.1:8090");
