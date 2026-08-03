@@ -37,7 +37,8 @@
            v-html="document && document.content">
       </div>
       <div style="position: relative;">
-        <section class="comments">
+        <section class="comments"
+        >
           <h1> Your comments </h1>
           <Modal v-if="active_feedback"
                  @modal-close="close"
@@ -45,7 +46,7 @@
                  @modal-submit="submit"
                  v-bind:feedback="active_feedback"> </Modal>
 
-          <p v-if="annotations.length == 0">
+          <p v-if="annotations.length == 0 && !active_feedback" style="background: #ffdd9c">
             Highlight some text to leave feedback!
           </p>
           <template v-for="feedback_item in annotations">

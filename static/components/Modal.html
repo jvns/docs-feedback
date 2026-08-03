@@ -34,7 +34,7 @@
                 v-bind:placeholder="icons[feedback.emoji].prompt"></textarea>
       <button class="btn"
               @click.prevent="$emit('modal-submit')">
-        {{ feedback.id !== undefined ? 'Update' : 'Submit' }}
+        {{ feedback.id !== undefined ? 'Update' : 'Add Comment' }}
       </button>
     </div>
   </form>
