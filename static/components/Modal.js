@@ -6,6 +6,10 @@ export default {
   emits: ["modal-close", "modal-submit"],
   mounted: function () {
     this.$el.focus();
+    this.$el.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+    });
     // focus the content when it comes into view
     const observer = new MutationObserver(() => {
       if (this.$refs.content) {
