@@ -1,0 +1,43 @@
+.squiggle-top,
+.squiggle-bottom {
+  position: relative;
+}
+
+.squiggle-top {
+  margin-top: 32px;
+}
+
+.squiggle-bottom {
+  margin-bottom: 32px;
+}
+
+.squiggle-top::before,
+.squiggle-bottom::after {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  height: 32px;
+}
+
+hr.squiggle {
+  border: none;
+  height: 32px;
+}
+
+.squiggle-top::before {
+  bottom: 100%;
+  background: url('data:image/svg+xml,<svg width="75" height="32" viewBox="32 0 75 32" xmlns="http://www.w3.org/2000/svg"><g fill="%23000" fill-rule="evenodd"><path d="M0 0h139v5H0z"/><path d="M107 0v5h-2.341283c-2 0-5.999683 2.079488-13.20414 11.262247l-2.127321 2.72115c-2.90467 3.687661-3.779283 5.021445-5.755843 6.842735l-.186403.170694C80.15817 28.933613 78.41748 31 72.41748 31c-9.182128 0-12.459594-2.7406-19.056274-10.765259l-4.828647-6.218139c-.576839-.72382-1.057495-1.317208-1.527904-1.884399C42.544425 6.75432 37.714106 5.106008 34 5h-2V0h75z" fill-rule="nonzero"/></g></svg>') repeat top center;
+  background-color: inherit;
+  -webkit-mask: url('data:image/svg+xml,<svg width="75" height="32" viewBox="32 0 75 32" xmlns="http://www.w3.org/2000/svg"><g fill="%23000" fill-rule="evenodd"><path d="M34 2c4.60081 0 8.311447 2.168652 13.226327 8.094727.764529.938016 1.19994 1.473434 1.306232 1.606254L51.839111 16C59.232015 25.284112 62.300121 28 69.5 28c4.815693 0 8.840966-2.079488 16.045423-11.262247l2.127321-2.72115c2.90467-3.687661 4.544664-5.6921 6.521223-7.51339l.186404-.170693c3.115569-2.835518 7.099341-4.22449 10.278346-4.327024L107 2v30.637695H32V2h2z" fill-rule="nonzero"/><path d="M0 2h32v137H0zM107 2h32v137h-32zM107 32H32v107h75z"/></g></svg>') repeat top center;
+  mask: url('data:image/svg+xml,<svg width="75" height="32" viewBox="32 0 75 32" xmlns="http://www.w3.org/2000/svg"><g fill="%23000" fill-rule="evenodd"><path d="M34 2c4.60081 0 8.311447 2.168652 13.226327 8.094727.764529.938016 1.19994 1.473434 1.306232 1.606254L51.839111 16C59.232015 25.284112 62.300121 28 69.5 28c4.815693 0 8.840966-2.079488 16.045423-11.262247l2.127321-2.72115c2.90467-3.687661 4.544664-5.6921 6.521223-7.51339l.186404-.170693c3.115569-2.835518 7.099341-4.22449 10.278346-4.327024L107 2v30.637695H32V2h2z" fill-rule="nonzero"/><path d="M0 2h32v137H0zM107 2h32v137h-32zM107 32H32v107h75z"/></g></svg>') repeat top center;
+}
+
+.squiggle-bottom::after {
+  top: 100%;
+  background: url('data:image/svg+xml,<svg width="75" height="32" viewBox="32 107 75 32" xmlns="http://www.w3.org/2000/svg"><g fill="%23000" fill-rule="evenodd"><path d="M34 109c4.60081 0 8.311447 2.168652 13.226327 8.094727.764529.938016 1.19994 1.473434 1.306232 1.606254L51.839111 123c7.392904 9.284112 10.46101 12 17.660889 12 4.815693 0 8.840966-2.079488 16.045423-11.262247l2.127321-2.72115c2.90467-3.687661 4.544664-5.6921 6.521223-7.51339l.186404-.170693c3.115569-2.835518 7.099341-4.22449 10.278346-4.327024L107 109v30.637695H32V109h2z" fill-rule="nonzero"/><path d="M0 109h32v30H0zM107 109h32v30h-32z"/></g></svg>') repeat bottom center;
+  background-color: inherit;
+  -webkit-mask: url('data:image/svg+xml,<svg width="75" height="32" viewBox="32 107 75 32" xmlns="http://www.w3.org/2000/svg"><g fill="%23000" fill-rule="evenodd"><path d="M0 0h139v112H0z"/><path d="M107 107v5h-2.341283c-2 0-5.999683 2.079488-13.20414 11.262247l-2.127321 2.72115c-2.90467 3.687661-3.779283 5.021445-5.755843 6.842735l-.186403.170694C80.15817 135.933613 78.41748 138 72.41748 138c-9.182128 0-12.459594-2.7406-19.056274-10.765259l-4.828647-6.218139c-.576839-.72382-1.057495-1.317208-1.527904-1.884399C42.544425 113.75432 37.714106 112.106008 34 112h-2v-5h75z" fill-rule="nonzero"/></g></svg>') repeat bottom center;
+  mask: url('data:image/svg+xml,<svg width="75" height="32" viewBox="32 107 75 32" xmlns="http://www.w3.org/2000/svg"><g fill="%23000" fill-rule="evenodd"><path d="M0 0h139v112H0z"/><path d="M107 107v5h-2.341283c-2 0-5.999683 2.079488-13.20414 11.262247l-2.127321 2.72115c-2.90467 3.687661-3.779283 5.021445-5.755843 6.842735l-.186403.170694C80.15817 135.933613 78.41748 138 72.41748 138c-9.182128 0-12.459594-2.7406-19.056274-10.765259l-4.828647-6.218139c-.576839-.72382-1.057495-1.317208-1.527904-1.884399C42.544425 113.75432 37.714106 112.106008 34 112h-2v-5h75z" fill-rule="nonzero"/></g></svg>') repeat bottom center;
+}
+

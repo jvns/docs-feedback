@@ -1,0 +1,27 @@
+/* typography */
+
+:root {
+  --size-xs: 0.75rem;
+  --line-height-xs: 1rem;
+
+  --size-sm: 0.875rem;
+  --line-height-sm: 1.25rem;
+
+  --size-base: 1rem;
+  --line-height-base: 1.5rem;
+
+  --size-lg: 1.125rem;
+  --line-height-lg: 1.75rem;
+
+  --size-xl: 1.25rem;
+  --line-height-xl: 1.75rem;
+
+  --size-2xl: 1.5rem;
+  --line-height-2xl: 2rem;
+
+  --size-3xl: 1.875rem;
+  --line-height-3xl: 2.25rem;
+
+  --size-4xl: 2.25rem;
+  --line-height-4xl: 2.5em;
+}
