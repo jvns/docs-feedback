@@ -41,13 +41,15 @@ const app = Vue.createApp({
     }
   },
 
+  computed: {
+    selectedAnnotationID() {
+      return this.active_feedback?.id || this.hover_feedback?.id;
+    }
+  },
+
   watch: {
-    hover_feedback(new_hover, _old_hover) {
-      if (new_hover && new_hover.id) {
-        anno.setSelected(new_hover.id);
-      } else {
-        anno.setSelected();
-      }
+    selectedAnnotationID(new_id, _old_id) {
+      anno.setSelected(new_id);
     },
   },
 
@@ -110,7 +112,6 @@ const app = Vue.createApp({
       this.annotations = feedbacks.items;
     },
     close() {
-      anno.setSelected();
       this.active_feedback = undefined;
       window.getSelection().empty();
       this.sync();
@@ -129,7 +130,6 @@ const app = Vue.createApp({
       window.getSelection().empty();
       // Make sure "Saving..." shows for at least 500ms
       await sleep(250 - (Date.now() - nowMS));
-      anno.setSelected();
       this.active_feedback = undefined;
     },
     setActive(feedback_item) {
