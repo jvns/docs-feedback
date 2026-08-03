@@ -110,9 +110,9 @@ const app = Vue.createApp({
       this.annotations = feedbacks.items;
     },
     close() {
+      anno.setSelected();
       this.active_feedback = undefined;
       window.getSelection().empty();
-      anno.setSelected();
       this.sync();
     },
     async submit() {
@@ -129,6 +129,7 @@ const app = Vue.createApp({
       window.getSelection().empty();
       // Make sure "Saving..." shows for at least 500ms
       await sleep(250 - (Date.now() - nowMS));
+      anno.setSelected();
       this.active_feedback = undefined;
     },
     setActive(feedback_item) {
