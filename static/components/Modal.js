@@ -46,7 +46,7 @@ export default {
     button_text() {
       if (this.saving) {
         return "Saving...";
-      } else if (this.feedback.id == "undefined") {
+      } else if (this.feedback.id == undefined) {
         return "Add Comment";
       } else {
         return "Update";
