@@ -18,61 +18,7 @@
   <nav class="squiggle-bottom">
   </nav>
   <main id="app">
-    <dialog ref="dialog" v-if="step == 'name'" class="email-page">
-      <p>
-        Welcome to the Wizard Zines feedback site! Please type in your name (or handle!) 
-        so that we know who the feedback is from.
-      </p>
-      <form id="name-email" @submit.prevent="save_name_email">
-        <label for="name">Name:</label><input id="name" ref="name">
-        <!-- <label for="email">Email:</label><input id="email" ref="email"> -->
-        <button>Continue</button>
-      </form>
-    </dialog>
-
-    <div class="user-feedback-page">
-      <div class="html"
-           ref="html"
-           v-html="document && document.content">
-      </div>
-      <div style="position: relative;">
-        <section class="comments"
-        >
-          <h1> Your comments </h1>
-          <Modal v-if="active_feedback && !active_feedback.id"
-                 @modal-close="close"
-                 @keydown.esc="close"
-                 @modal-submit="submit"
-                 v-bind:feedback="active_feedback"> </Modal>
-
-          <p v-if="annotations.length == 0 && !active_feedback" style="background: #ffdd9c">
-            Highlight some text to leave feedback!
-          </p>
-          <template v-for="feedback_item in annotations">
-          <Modal v-if="active_feedback && active_feedback.id == feedback_item.id"
-                 @modal-close="close"
-                 @keydown.esc="close"
-                 @modal-submit="submit"
-                 v-bind:feedback="active_feedback"> </Modal>
-
-          <article v-else
-                   role="button"
-                   aria-label="Edit feedback"
-                   class="feedback-item"
-                  :class="{
-                      'active': active_feedback,
-                   }"
-                   @mouseenter="hover_feedback = feedback_item"
-                   @mouseleave="hover_feedback = undefined"
-                   @click="setActive(feedback_item)">
-
-            <span role="img" v-html="icons[feedback_item.emoji].emoji"> </span>
-            {{feedback_item.content}}
-          </article>
-          </template>
-        </section>
-      </div>
-    </div>
+    <userfeedback />
   </main>
   <footer class="squiggle-top">
     this feedback site was made by <a href="https://marieflanagan.com/">Marie
