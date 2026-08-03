@@ -77,6 +77,8 @@ QUnit.module("Modal", function () {
   });
 });
 
+// const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 QUnit.module("UserFeedback", function (hooks) {
   hooks.beforeEach(function () {
     const r = (Math.random() + 1).toString(36).substring(7);
@@ -90,4 +92,14 @@ QUnit.module("UserFeedback", function (hooks) {
     );
     assert.ok(div.getByText("Your comments"));
   });
+
+  QUnit.test("document text appears", async function (assert) {
+    const { div } = mountComponent(
+      "<userfeedback />",
+      {},
+    );
+    // console.log(document.getElementById("qunit-fixture").innerHTML);
+    await waitFor(() => div.queryByText(/name of a remote repository/), assert);
+  });
+
 });

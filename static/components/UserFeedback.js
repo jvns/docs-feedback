@@ -8,6 +8,7 @@ import RecogitoJS from "../js/text-annotator.umd.js";
 window.process = { browser: true, env: { ENVIRONMENT: "BROWSER" } }; // Recogito needs this for some reason, idk why
 const { createTextAnnotator } = RecogitoJS;
 const pb = new PocketBase("http://127.0.0.1:8090");
+pb.autoCancellation(false);  // this seems to be causing test failures
 let anno = undefined;
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
