@@ -693,7 +693,7 @@ article.feedback-item {
   padding: 2rem;
 
   .btn.saving {
-    background: var(--green-6);
+    background: var(--green-8);
   }
 
   [aria-label=Close] {
