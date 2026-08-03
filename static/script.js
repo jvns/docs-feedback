@@ -41,6 +41,16 @@ const app = Vue.createApp({
     }
   },
 
+  watch: {
+    hover_feedback(new_hover, _old_hover) {
+      if (new_hover && new_hover.id) {
+        anno.setSelected(new_hover.id);
+      } else {
+        anno.setSelected();
+      }
+    },
+  },
+
   methods: {
     getStep() {
       if (!localStorage.getItem("person_id")) {
