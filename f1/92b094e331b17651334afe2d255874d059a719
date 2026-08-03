@@ -1,0 +1,20 @@
+static/css/qunit-2.25.0.css
+  h_47bf5c380f00d8 1-525
+static/js/qunit-2.25.0.js
+  h_47bf5c380f00d8 1-7461
+static/js/testing-library.js
+  h_47bf5c380f00d8 1-12567
+static/test/index.html
+  h_47bf5c380f00d8 1-23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "f192b094e331b17651334afe2d255874d059a719",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
