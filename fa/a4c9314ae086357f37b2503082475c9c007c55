@@ -1,0 +1,21 @@
+static/components/UserFeedback.html
+  s_b3e2f097f2a634::t_a1c73de3c30d84 5-60
+  s_b3e2f097f2a634::t_a12df6774abc03 1
+  s_b3e2f097f2a634::t_174761abf17106 2-4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "faa4c9314ae086357f37b2503082475c9c007c55",
+  "prompts": {},
+  "sessions": {
+    "s_b3e2f097f2a634": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "13a29d18-7dc8-4705-9b4d-192bf725c370",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
