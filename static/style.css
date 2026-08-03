@@ -555,22 +555,22 @@ body>footer {
 
 article.feedback-item {
   position: relative;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin: .5rem 0;
+  padding: .25rem;
   max-height: 8rem;
   width: 100%;
   cursor: pointer;
   overflow: hidden;
-  background: var(--pink-200);
-  border: 1px solid white;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  border: 1px solid var(--gray-200);
+  font-size: 1rem;
+  &:hover {
+    background: var(--pink-100);
+    border-color: var(--pink-100);
+  }
 
   [role=img] {
     display: inline-block;
-    width: 2rem;
+    width: 1.8rem;
     padding-right: 0.5rem;
     vertical-align: middle;
   }
