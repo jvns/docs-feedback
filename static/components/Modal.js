@@ -35,10 +35,14 @@ export default {
       const container = this.$el.parentElement;
       const parentRect = container.getBoundingClientRect();
       const rect = this.$el.getBoundingClientRect();
+
+      if (rect.top >= parentRect.top && rect.bottom <= parentRect.bottom) {
+        return;
+      }
       container.scrollBy({
         top: rect.top - parentRect.top -
           (container.clientHeight - rect.height) / 2,
-        behavior: "smooth",
+        // behavior: "smooth",
       });
     },
   },
