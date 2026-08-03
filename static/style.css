@@ -334,86 +334,172 @@ video {
 
 /* css/colors.css */
 :root {
-  --blue-50: rgba(239, 246, 255);
-  --blue-100: rgba(219, 234, 254);
-  --blue-200: rgba(191, 219, 254);
-  --blue-300: rgba(147, 197, 253);
-  --blue-400: rgba(96, 165, 250);
-  --blue-500: rgba(59, 130, 246);
-  --blue-600: rgba(37, 99, 235);
-  --blue-700: rgba(29, 78, 216);
-  --blue-800: rgba(30, 64, 175);
-  --blue-900: rgba(30, 58, 138);
-  --gray-50: rgba(249, 250, 251);
-  --gray-100: rgba(243, 244, 246);
-  --gray-200: rgba(229, 231, 235);
-  --gray-300: rgba(209, 213, 219);
-  --gray-400: rgba(156, 163, 175);
-  --gray-500: rgba(107, 114, 128);
-  --gray-600: rgba(75, 85, 99);
-  --gray-700: rgba(55, 65, 81);
-  --gray-800: rgba(31, 41, 55);
-  --gray-900: rgba(17, 24, 39);
-  --green-50: rgba(236, 253, 245);
-  --green-100: rgba(209, 250, 229);
-  --green-200: rgba(167, 243, 208);
-  --green-300: rgba(110, 231, 183);
-  --green-400: rgba(52, 211, 153);
-  --green-500: rgba(16, 185, 129);
-  --green-600: rgba(5, 150, 105);
-  --green-700: rgba(4, 120, 87);
-  --green-800: rgba(6, 95, 70);
-  --green-900: rgba(6, 78, 59);
-  --indigo-50: rgba(238, 242, 255);
-  --indigo-100: rgba(224, 231, 255);
-  --indigo-200: rgba(199, 210, 254);
-  --indigo-300: rgba(165, 180, 252);
-  --indigo-400: rgba(129, 140, 248);
-  --indigo-500: rgba(99, 102, 241);
-  --indigo-600: rgba(79, 70, 229);
-  --indigo-700: rgba(67, 56, 202);
-  --indigo-800: rgba(55, 48, 163);
-  --indigo-900: rgba(49, 46, 129);
-  --pink-50: rgba(253, 242, 248);
-  --pink-100: rgba(252, 231, 243);
-  --pink-200: rgba(251, 207, 232);
-  --pink-300: rgba(249, 168, 212);
-  --pink-400: rgba(244, 114, 182);
-  --pink-500: rgba(236, 72, 153);
-  --pink-600: rgba(219, 39, 119);
-  --pink-700: rgba(190, 24, 93);
-  --pink-800: rgba(157, 23, 77);
-  --pink-900: rgba(131, 24, 67);
-  --purple-50: rgba(245, 243, 255);
-  --purple-100: rgba(237, 233, 254);
-  --purple-200: rgba(221, 214, 254);
-  --purple-300: rgba(196, 181, 253);
-  --purple-400: rgba(167, 139, 250);
-  --purple-500: rgba(139, 92, 246);
-  --purple-600: rgba(124, 58, 237);
-  --purple-700: rgba(109, 40, 217);
-  --purple-800: rgba(91, 33, 182);
-  --purple-900: rgba(76, 29, 149);
-  --red-50: rgba(254, 242, 242);
-  --red-100: rgba(254, 226, 226);
-  --red-200: rgba(254, 202, 202);
-  --red-300: rgba(252, 165, 165);
-  --red-400: rgba(248, 113, 113);
-  --red-500: rgba(239, 68, 68);
-  --red-600: rgba(220, 38, 38);
-  --red-700: rgba(185, 28, 28);
-  --red-800: rgba(153, 27, 27);
-  --red-900: rgba(127, 29, 29);
-  --yellow-50: rgba(255, 251, 235);
-  --yellow-100: rgba(254, 243, 199);
-  --yellow-200: rgba(253, 230, 138);
-  --yellow-300: rgba(252, 211, 77);
-  --yellow-400: rgba(251, 191, 36);
-  --yellow-500: rgba(245, 158, 11);
-  --yellow-600: rgba(217, 119, 6);
-  --yellow-700: rgba(180, 83, 9);
-  --yellow-800: rgba(146, 64, 14);
-  --yellow-900: rgba(120, 53, 15);
+  /* from https://uchu.style/
+  but I took off the --uchu so I don't have to type as much */
+  --blue-1-raw: 0.8966 0.046 260.67;
+  --blue-1: oklch(0.8966 0.046 260.67);
+  --blue-2-raw: 0.8017 0.091 258.88;
+  --blue-2: oklch(0.8017 0.091 258.88);
+  --blue-3-raw: 0.7094 0.136 258.06;
+  --blue-3: oklch(0.7094 0.136 258.06);
+  --blue-4-raw: 0.6239 0.181 258.33;
+  --blue-4: oklch(0.6239 0.181 258.33);
+  --blue-5-raw: 0.5487 0.222 260.33;
+  --blue-5: oklch(0.5487 0.222 260.33);
+  --blue-6-raw: 0.5115 0.204 260.17;
+  --blue-6: oklch(0.5115 0.204 260.17);
+  --blue-7-raw: 0.4736 0.185 259.89;
+  --blue-7: oklch(0.4736 0.185 259.89);
+  --blue-8-raw: 0.4348 0.17 260.2;
+  --blue-8: oklch(0.4348 0.17 260.2);
+  --blue-9-raw: 0.3953 0.15 259.87;
+  --blue-9: oklch(0.3953 0.15 259.87);
+  --gray-1-raw: 0.9557 0.003 286.35;
+  --gray-1: oklch(0.9557 0.003 286.35);
+  --gray-2-raw: 0.9204 0.002 197.12;
+  --gray-2: oklch(0.9204 0.002 197.12);
+  --gray-3-raw: 0.8828 0.003 286.34;
+  --gray-3: oklch(0.8828 0.003 286.34);
+  --gray-4-raw: 0.8468 0.002 197.12;
+  --gray-4: oklch(0.8468 0.002 197.12);
+  --gray-5-raw: 0.8073 0.002 247.84;
+  --gray-5: oklch(0.8073 0.002 247.84);
+  --gray-6-raw: 0.7503 0.002 247.85;
+  --gray-6: oklch(0.7503 0.002 247.85);
+  --gray-7-raw: 0.6901 0.003 286.32;
+  --gray-7: oklch(0.6901 0.003 286.32);
+  --gray-8-raw: 0.6312 0.004 219.55;
+  --gray-8: oklch(0.6312 0.004 219.55);
+  --gray-9-raw: 0.5682 0.004 247.89;
+  --gray-9: oklch(0.5682 0.004 247.89);
+  --green-1-raw: 0.9396 0.05 148.74;
+  --green-1: oklch(0.9396 0.05 148.74);
+  --green-2-raw: 0.8877 0.096 147.71;
+  --green-2: oklch(0.8877 0.096 147.71);
+  --green-3-raw: 0.8374 0.139 146.57;
+  --green-3: oklch(0.8374 0.139 146.57);
+  --green-4-raw: 0.7933 0.179 145.62;
+  --green-4: oklch(0.7933 0.179 145.62);
+  --green-5-raw: 0.7523 0.209 144.64;
+  --green-5: oklch(0.7523 0.209 144.64);
+  --green-6-raw: 0.7003 0.194 144.71;
+  --green-6: oklch(0.7003 0.194 144.71);
+  --green-7-raw: 0.6424 0.175 144.92;
+  --green-7: oklch(0.6424 0.175 144.92);
+  --green-8-raw: 0.5883 0.158 145.05;
+  --green-8: oklch(0.5883 0.158 145.05);
+  --green-9-raw: 0.5277 0.138 145.41;
+  --green-9: oklch(0.5277 0.138 145.41);
+  --orange-1-raw: 0.9383 0.037 56.93;
+  --orange-1: oklch(0.9383 0.037 56.93);
+  --orange-2-raw: 0.8837 0.072 55.8;
+  --orange-2: oklch(0.8837 0.072 55.8);
+  --orange-3-raw: 0.8356 0.107 56.49;
+  --orange-3: oklch(0.8356 0.107 56.49);
+  --orange-4-raw: 0.7875 0.141 54.32;
+  --orange-4: oklch(0.7875 0.141 54.32);
+  --orange-5-raw: 0.7461 0.171 51.56;
+  --orange-5: oklch(0.7461 0.171 51.56);
+  --orange-6-raw: 0.6933 0.157 52.18;
+  --orange-6: oklch(0.6933 0.157 52.18);
+  --orange-7-raw: 0.638 0.142 52.1;
+  --orange-7: oklch(0.638 0.142 52.1);
+  --orange-8-raw: 0.5828 0.128 52.2;
+  --orange-8: oklch(0.5828 0.128 52.2);
+  --orange-9-raw: 0.5249 0.113 51.98;
+  --orange-9: oklch(0.5249 0.113 51.98);
+  --pink-1-raw: 0.958 0.023 354.27;
+  --pink-1: oklch(0.958 0.023 354.27);
+  --pink-2-raw: 0.9214 0.046 352.31;
+  --pink-2: oklch(0.9214 0.046 352.31);
+  --pink-3-raw: 0.889 0.066 354.39;
+  --pink-3: oklch(0.889 0.066 354.39);
+  --pink-4-raw: 0.8543 0.09 354.1;
+  --pink-4: oklch(0.8543 0.09 354.1);
+  --pink-5-raw: 0.8223 0.112 355.33;
+  --pink-5: oklch(0.8223 0.112 355.33);
+  --pink-6-raw: 0.7637 0.101 355.37;
+  --pink-6: oklch(0.7637 0.101 355.37);
+  --pink-7-raw: 0.7023 0.092 354.96;
+  --pink-7: oklch(0.7023 0.092 354.96);
+  --pink-8-raw: 0.6411 0.084 353.91;
+  --pink-8: oklch(0.6411 0.084 353.91);
+  --pink-9-raw: 0.5768 0.074 353.14;
+  --pink-9: oklch(0.5768 0.074 353.14);
+  --purple-1-raw: 0.891 0.046 305.24;
+  --purple-1: oklch(0.891 0.046 305.24);
+  --purple-2-raw: 0.7868 0.091 305;
+  --purple-2: oklch(0.7868 0.091 305);
+  --purple-3-raw: 0.685 0.136 303.78;
+  --purple-3: oklch(0.685 0.136 303.78);
+  --purple-4-raw: 0.5847 0.181 302.06;
+  --purple-4: oklch(0.5847 0.181 302.06);
+  --purple-5-raw: 0.4939 0.215 298.31;
+  --purple-5: oklch(0.4939 0.215 298.31);
+  --purple-6-raw: 0.4611 0.198 298.4;
+  --purple-6: oklch(0.4611 0.198 298.4);
+  --purple-7-raw: 0.4277 0.181 298.49;
+  --purple-7: oklch(0.4277 0.181 298.49);
+  --purple-8-raw: 0.3946 0.164 298.29;
+  --purple-8: oklch(0.3946 0.164 298.29);
+  --purple-9-raw: 0.3601 0.145 298.35;
+  --purple-9: oklch(0.3601 0.145 298.35);
+  --red-1-raw: 0.8898 0.052 3.28;
+  --red-1: oklch(0.8898 0.052 3.28);
+  --red-2-raw: 0.7878 0.109 4.54;
+  --red-2: oklch(0.7878 0.109 4.54);
+  --red-3-raw: 0.6986 0.162 7.82;
+  --red-3: oklch(0.6986 0.162 7.82);
+  --red-4-raw: 0.6273 0.209 12.37;
+  --red-4: oklch(0.6273 0.209 12.37);
+  --red-5-raw: 0.5863 0.231 19.6;
+  --red-5: oklch(0.5863 0.231 19.6);
+  --red-6-raw: 0.5441 0.214 19.06;
+  --red-6: oklch(0.5441 0.214 19.06);
+  --red-7-raw: 0.4995 0.195 18.34;
+  --red-7: oklch(0.4995 0.195 18.34);
+  --red-8-raw: 0.458 0.177 17.7;
+  --red-8: oklch(0.458 0.177 17.7);
+  --red-9-raw: 0.4117 0.157 16.58;
+  --red-9: oklch(0.4117 0.157 16.58);
+  --yellow-1-raw: 0.9705 0.039 91.2;
+  --yellow-1: oklch(0.9705 0.039 91.2);
+  --yellow-2-raw: 0.95 0.07 92.39;
+  --yellow-2: oklch(0.95 0.07 92.39);
+  --yellow-3-raw: 0.9276 0.098 92.58;
+  --yellow-3: oklch(0.9276 0.098 92.58);
+  --yellow-4-raw: 0.9092 0.125 92.56;
+  --yellow-4: oklch(0.9092 0.125 92.56);
+  --yellow-5-raw: 0.89 0.146 91.5;
+  --yellow-5: oklch(0.89 0.146 91.5);
+  --yellow-6-raw: 0.8239 0.133 91.5;
+  --yellow-6: oklch(0.8239 0.133 91.5);
+  --yellow-7-raw: 0.7584 0.122 92.21;
+  --yellow-7: oklch(0.7584 0.122 92.21);
+  --yellow-8-raw: 0.6914 0.109 91.04;
+  --yellow-8: oklch(0.6914 0.109 91.04);
+  --yellow-9-raw: 0.6229 0.097 91.9;
+  --yellow-9: oklch(0.6229 0.097 91.9);
+  --yin-1-raw: 0.9187 0.003 264.54;
+  --yin-1: oklch(0.9187 0.003 264.54);
+  --yin-2-raw: 0.8461 0.004 286.31;
+  --yin-2: oklch(0.8461 0.004 286.31);
+  --yin-3-raw: 0.7689 0.004 247.87;
+  --yin-3: oklch(0.7689 0.004 247.87);
+  --yin-4-raw: 0.6917 0.004 247.88;
+  --yin-4: oklch(0.6917 0.004 247.88);
+  --yin-5-raw: 0.6101 0.005 271.34;
+  --yin-5: oklch(0.6101 0.005 271.34);
+  --yin-6-raw: 0.5279 0.005 271.32;
+  --yin-6: oklch(0.5279 0.005 271.32);
+  --yin-7-raw: 0.4387 0.005 271.3;
+  --yin-7: oklch(0.4387 0.005 271.3);
+  --yin-8-raw: 0.3502 0.005 236.66;
+  --yin-8: oklch(0.3502 0.005 236.66);
+  --yin-9-raw: 0.2511 0.006 258.36;
+  --yin-9: oklch(0.2511 0.006 258.36);
+  --yang: oklch(0.994 0 0);
+  --yin: oklch(0.1438 0.007 256.88);
 }
 
 /* css/squiggle.css */
@@ -475,7 +561,7 @@ hr.squiggle {
 
 .btn {
   border-radius: 0.25rem;
-  background-color: black;
+  background-color: var(--yin-9);
   padding: .5rem 2rem;
   color: white;
 }
@@ -531,7 +617,7 @@ a {
 }
 
 nav {
-  background-color: var(--pink-400);
+  background-color: var(--pink-4);
   padding: 2.5rem 0;
   color: white;
   display: grid;
@@ -561,12 +647,12 @@ article.feedback-item {
   width: 100%;
   cursor: pointer;
   overflow: hidden;
-  border: 1px solid var(--gray-200);
+  border: 1px solid var(--gray-2);
   font-size: 1rem;
 
   &:hover {
-    background: var(--pink-100);
-    border-color: var(--pink-100);
+    background: var(--pink-1);
+    border-color: var(--pink-1);
   }
 
   &.active {
@@ -586,7 +672,7 @@ article.feedback-item {
     right: 0px;
     bottom: 0px;
     width: 100%;
-    background-color: var(--pink-500);
+    background-color: var(--pink-5);
     padding: 0.25rem;
     text-align: center;
     color: white;
@@ -599,15 +685,15 @@ article.feedback-item {
   /* top: 0.5rem; */
   position: relative;
   z-index: 10;
-  border: 2px solid black;
-  background-color: var(--gray-100);
+  border: 2px solid var(--yin-9);
+  background-color: var(--gray-1);
   width: 100%;
   font-size: var(--size-base);
   line-height: var(--line-height-base);
   padding: 2rem;
 
   .btn.saving {
-    background: var(--green-600);
+    background: var(--green-6);
   }
 
   [aria-label=Close] {
@@ -656,7 +742,7 @@ article.feedback-item {
     width: 100%;
     border-radius: 0.25rem;
     border-width: 1px;
-    border-color: var(--gray-200);
+    border-color: var(--gray-2);
     padding: 0.5rem;
   }
 
@@ -676,8 +762,8 @@ article.feedback-item {
   grid-template-columns: var(--image-width) 1fr;
   gap: 1rem;
   margin-top: 1rem;
-  outline: 2rem solid var(--gray-200);
-  background: var(--gray-200);
+  outline: 2rem solid var(--gray-2);
+  background: var(--gray-2);
   margin-left: 2rem;
   margin-top: 2rem;
   margin-bottom: 5rem;
@@ -702,7 +788,7 @@ article.feedback-item {
   max-width: 600px;
   width: 100%;
   background: white;
-  border: 1px solid var(--pink-600);
+  border: 1px solid var(--pink-6);
 
   &::backdrop {
     background: rgba(255, 231, 200, 0.9);
@@ -720,12 +806,12 @@ form#name-email {
   }
 
   input {
-    border: 1px solid var(--pink-600);
+    border: 1px solid var(--pink-6);
     padding: 0 .5rem;
   }
 
   button {
-    background-color: var(--pink-600);
+    background-color: var(--pink-6);
     padding: .5rem 2rem;
     color: white;
   }
@@ -751,13 +837,13 @@ body:has(dialog[open]) {
 
   .intro {
     width: 100%;
-    background-color: var(--pink-100);
+    background-color: var(--pink-1);
     padding: 2rem;
   }
 
   form.general-feedback {
     width: 100%;
-    background-color: var(--pink-100);
+    background-color: var(--pink-1);
     padding: 2rem;
 
     .textarea-wrapper {
@@ -771,7 +857,7 @@ body:has(dialog[open]) {
       width: 100%;
       border-radius: 0.25rem;
       border-width: 1px;
-      border-color: var(--gray-200);
+      border-color: var(--gray-2);
       padding: 0.5rem;
     }
 
@@ -796,10 +882,10 @@ body:has(dialog[open]) {
   line-height: var(--line-height-sm);
   display: flex;
   align-items: flex-start;
-  background-color: var(--pink-100);
+  background-color: var(--pink-1);
 
   &.admin {
-    background-color: var(--purple-100);
+    background-color: var(--purple-1);
   }
 
   &.checked {
@@ -825,7 +911,7 @@ body:has(dialog[open]) {
     right: 0.5rem;
     font-size: var(--size-xs);
     line-height: var(--line-height-xs);
-    color: var(--gray-500);
+    color: var(--gray-5);
   }
 
   button {
@@ -844,7 +930,7 @@ body:has(dialog[open]) {
     padding: 0 0.25rem;
     font-size: var(--size-2xl);
     line-height: var(--line-height-2xl);
-    color: var(--pink-800);
+    color: var(--pink-8);
     appearance: none;
     margin: 0;
 
@@ -893,7 +979,7 @@ body:has(dialog[open]) {
 
       input[type=date] {
         border-radius: 0.25rem;
-        border: 1px solid var(--gray-200);
+        border: 1px solid var(--gray-2);
         padding: 0 0.5rem;
       }
     }
@@ -908,7 +994,7 @@ body:has(dialog[open]) {
       height: 1.25rem;
       cursor: pointer;
       border-radius: 0.25rem;
-      border: 1px solid var(--gray-200);
+      border: 1px solid var(--gray-2);
       padding-left: .25rem;
       padding-right: .5rem;
       text-decoration: none;
@@ -933,7 +1019,7 @@ body:has(dialog[open]) {
     position: relative;
     margin-top: 1rem;
     width: 100%;
-    background-color: var(--gray-200);
+    background-color: var(--gray-2);
     padding: 2rem;
     margin: auto;
     display: flex;
@@ -956,7 +1042,7 @@ form.login {
   margin: 5rem auto;
 
   input {
-    background: var(--pink-100);
+    background: var(--pink-1);
     padding: .5rem;
     margin: 1rem 0;
     display: block;
@@ -965,7 +1051,7 @@ form.login {
   }
 
   button.btn {
-    background: var(--pink-500);
+    background: var(--pink-5);
     width: 100%;
   }
 }
@@ -975,7 +1061,7 @@ form.login {
 }
 
 .comments {
-  border-left: 5px solid var(--pink-500);
+  border-left: 5px solid var(--pink-5);
   position: sticky;
   height: 100vh;
   top: 0px;
@@ -1014,5 +1100,5 @@ form.login {
 }
 
 body {
-  background: var(--pink-100);
+  background: var(--pink-1);
 }
