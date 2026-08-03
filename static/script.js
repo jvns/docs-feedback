@@ -112,6 +112,7 @@ const app = Vue.createApp({
     close() {
       this.active_feedback = undefined;
       window.getSelection().empty();
+      anno.setSelected();
       this.sync();
     },
     async submit() {
