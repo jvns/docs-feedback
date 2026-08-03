@@ -569,6 +569,11 @@ article.feedback-item {
     border-color: var(--pink-100);
   }
 
+  &.active {
+    pointer-events: none;
+    opacity: 0.2;
+  }
+
   [role=img] {
     display: inline-block;
     width: 1.8rem;
