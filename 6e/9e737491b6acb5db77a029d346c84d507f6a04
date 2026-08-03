@@ -1,0 +1,14 @@
+static/css/utilities.css
+  h_47bf5c380f00d8 1-51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "6e9e737491b6acb5db77a029d346c84d507f6a04",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
