@@ -9,7 +9,7 @@ import LoginComponent from "./components/Login";
 import * as icons from "./components/icons.json";
 import { fromRecord, toRecord } from "./util.js";
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const components = {
   "Modal": ModalComponent,
