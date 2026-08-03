@@ -563,6 +563,7 @@ article.feedback-item {
   overflow: hidden;
   border: 1px solid var(--gray-200);
   font-size: 1rem;
+
   &:hover {
     background: var(--pink-100);
     border-color: var(--pink-100);
@@ -599,6 +600,10 @@ article.feedback-item {
   font-size: var(--size-base);
   line-height: var(--line-height-base);
   padding: 2rem;
+
+  .btn.saving {
+    background: var(--green-600);
+  }
 
   [aria-label=Close] {
     cursor: pointer;

@@ -33,8 +33,9 @@
                 v-model="feedback.content"
                 v-bind:placeholder="icons[feedback.emoji].prompt"></textarea>
       <button class="btn"
-              @click.prevent="$emit('modal-submit')">
-        {{ feedback.id !== undefined ? 'Update' : 'Add Comment' }}
+              :class="button_text == 'Saving...' ? 'saving' : ''"
+              @click.prevent="save">
+        {{ button_text }}
       </button>
     </div>
   </form>

@@ -9,6 +9,8 @@ import LoginComponent from "./components/Login";
 import * as icons from "./components/icons.json";
 import { fromRecord, toRecord } from "./util.js";
 
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
 const components = {
   "Modal": ModalComponent,
   "Login": LoginComponent,
@@ -103,6 +105,7 @@ const app = Vue.createApp({
       this.sync();
     },
     async submit() {
+      const nowMS = Date.now();
       if (this.active_feedback.id) {
         await pb.collection("feedback").update(
           this.active_feedback.id,
@@ -111,7 +114,11 @@ const app = Vue.createApp({
       } else {
         await pb.collection("feedback").create(this.active_feedback);
       }
-      this.close();
+      await this.sync();
+      window.getSelection().empty();
+      // Make sure "Saving..." shows for at least 500ms
+      await sleep(250 - (Date.now() - nowMS));
+      this.active_feedback = undefined;
     },
     setActive(feedback_item) {
       anno.scrollIntoView(feedback_item.id);
