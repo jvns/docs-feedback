@@ -1,0 +1,15 @@
+static/style.css
+  h_47bf5c380f00d8 337-502,650,654-655,675,689,696,745,765-766,791,809,814,840,846,860,885,888,914,982,997,1022,1045,1054,1064,1103
+  h_47bf5c380f00d8 564,620,688,933
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "90f567f5b4d3246ac2c89de77c04f8eb56bdca66",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
