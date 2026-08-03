@@ -1,0 +1,35 @@
+static/css/squiggle-top-mask.svg
+  h_47bf5c380f00d8 1
+static/css/colors.css
+  h_47bf5c380f00d8 1-168
+static/css/squiggle.css
+  h_47bf5c380f00d8 1-43
+static/style.css
+  h_47bf5c380f00d8 1-6
+  h_47bf5c380f00d8 7
+static/css/squiggle-bottom-invert.svg
+  h_47bf5c380f00d8 1
+static/css/reset.css
+  h_47bf5c380f00d8 1-274
+static/css/squiggle-bottom-mask.svg
+  h_47bf5c380f00d8 1
+static/css/squiggle-top-invert.svg
+  h_47bf5c380f00d8 1
+static/css/typography.css
+  h_47bf5c380f00d8 1-27
+static/css/components.css
+  h_47bf5c380f00d8 1-501
+static/css/utilities.css
+  h_47bf5c380f00d8 1-51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "5034caa02bbc65ee82ff52fc83016de95a11c1b0",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
