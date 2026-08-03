@@ -1,5 +1,4 @@
 import template from "./Modal.html";
-import * as icons from "./icons.json";
 
 export default {
   template: template,
@@ -18,7 +17,6 @@ export default {
   },
   data() {
     return {
-      icons: icons,
       saving: false,
     };
   },

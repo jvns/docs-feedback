@@ -26,7 +26,6 @@ const app = Vue.createApp({
       annotations: [],
       active_feedback: undefined,
       hover_feedback: undefined,
-      icons: icons,
     };
   },
 
@@ -138,6 +137,8 @@ const app = Vue.createApp({
     },
   },
 });
+
+app.config.globalProperties.icons = icons;
 for (const [c, v] of Object.entries(components)) {
   app.component(c, v);
 }
