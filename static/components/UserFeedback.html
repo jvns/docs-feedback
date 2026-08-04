@@ -15,10 +15,13 @@
   </dialog>
 
   <div class="user-feedback-page">
-    <div class="html"
-         ref="html"
-         v-html="document && document.content">
-    </div>
+    <Annotator :document="document"
+               :feedbacks="feedbacks"
+               :person_id="person_id"
+               v-if="document && person_id"
+               v-model:active_feedback="active_feedback"
+               v-model:hover_feedback="hover_feedback">
+    </Annotator>
     <div style="position: relative;">
       <section class="comments">
         <h2> Your comments </h2>
@@ -28,11 +31,11 @@
                @modal-submit="submit"
                v-bind:feedback="active_feedback"> </Modal>
 
-        <p v-if="annotations.length == 0 && !active_feedback"
+        <p v-if="feedbacks.length == 0 && !active_feedback"
            style="background: #ffdd9c">
           Highlight some text to leave feedback!
         </p>
-        <template v-for="feedback_item in annotations">
+        <template v-for="feedback_item in feedbacks">
           <Modal v-if="active_feedback && active_feedback.id == feedback_item.id"
                  @modal-close="close"
                  @keydown.esc="close"
@@ -48,7 +51,7 @@
                    }"
                    @mouseenter="hover_feedback = feedback_item"
                    @mouseleave="hover_feedback = undefined"
-                   @click="setActive(feedback_item)">
+                   @click="active_feedback = feedback_item">
 
             <span role="img" v-html="icons[feedback_item.emoji].emoji"> </span>
             {{feedback_item.content}}

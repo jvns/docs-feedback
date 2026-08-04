@@ -1,3 +1,14 @@
 <div>
-  <AdminLogin v-if="!loggedIn" @logged-in="loggedIn = true" />
+  <AdminLogin v-if="!loggedIn" @logged-in="loggedIn = true"> </AdminLogin>
+  <div v-else>
+    <Annotator :document="document"
+               :feedbacks="feedbacks"
+               v-model:active_feedback="active_feedback"
+               v-model:hover_feedback="hover_feedback">
+    </Annotator>
+    <AdminFeedbacks :feedbacks="feedbacks"
+                    v-model:active_feedback="active_feedback"
+                    v-model:hover_feedback="hover_feedback">
+    </AdminFeedbacks>
+  </div>
 </div>

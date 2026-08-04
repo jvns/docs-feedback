@@ -1,7 +1,7 @@
 import PocketBase from "./js/pocketbase.umd.js";
 
 const pb = new PocketBase("http://127.0.0.1:8090");
-pb.autoCancellation(false);  // this seems to be causing test failures
+pb.autoCancellation(false); // this seems to be causing test failures
 
 function toRecord(ann) {
   const body = ann.bodies[0];
@@ -33,4 +33,11 @@ function fromRecord(record) {
   };
 }
 
-export {fromRecord, toRecord, pb}
+async function getDocument(name) {
+  const doc = await pb.collection("documents").getFirstListItem(
+    pb.filter("name={:name}", { name: name}),
+  );
+  return doc;
+}
+
+export { getDocument, fromRecord, pb, toRecord };

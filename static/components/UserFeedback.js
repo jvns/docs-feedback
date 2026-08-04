@@ -1,12 +1,7 @@
 import template from "./UserFeedback.html";
 
-import { fromRecord, toRecord, pb } from "../util.js";
-
-import RecogitoJS from "../js/text-annotator.umd.js";
-
-window.process = { browser: true, env: { ENVIRONMENT: "BROWSER" } }; // Recogito needs this for some reason, idk why
-const { createTextAnnotator } = RecogitoJS;
-let anno = undefined;
+import * as util from "../util.js";
+const pb = util.pb;
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -16,10 +11,10 @@ export default {
     return {
       document: undefined,
       step: "name",
-      errors: [],
-      annotations: [],
+      feedbacks: [],
       active_feedback: undefined,
       hover_feedback: undefined,
+      person_id: undefined,
     };
   },
 
@@ -34,18 +29,6 @@ export default {
     }
   },
 
-  computed: {
-    selectedAnnotationID() {
-      return this.active_feedback?.id || this.hover_feedback?.id;
-    },
-  },
-
-  watch: {
-    selectedAnnotationID(new_id, _old_id) {
-      anno.setSelected(new_id);
-    },
-  },
-
   methods: {
     getStep() {
       if (!localStorage.getItem("person_id")) {
@@ -56,32 +39,13 @@ export default {
     },
     async getDocument() {
       const doc_name = "git-pull";
-      this.document = await pb.collection("documents").getFirstListItem(
-        pb.filter("name={:id}", { id: doc_name }),
-      );
+      this.document = await util.getDocument("git-pull");
       document.title = "feedback: " + doc_name;
       await this.$nextTick();
     },
     async setupAnnotator() {
       const person_id = localStorage.getItem("person_id");
 
-      anno = createTextAnnotator(this.$refs.html, {
-        "user": { "id": person_id, "name": "Julia" },
-      });
-      anno.on("clickAnnotation", (annotation) => {
-        this.active_feedback = toRecord(annotation);
-      });
-
-      anno.on("createAnnotation", (annotation) => {
-        // immediately remove it in case we cancel the annotation
-        anno.removeAnnotation(annotation);
-        annotation.id = undefined; // API should set the initial ID
-        annotation.bodies = [{
-          document_id: this.document.id,
-          content: "",
-        }];
-        this.active_feedback = toRecord(annotation);
-      });
       await this.sync();
     },
     async save_name_email() {
@@ -94,22 +58,19 @@ export default {
       await this.setupAnnotator();
     },
     async sync() {
-      this.loggedIn = pb.authStore.isValid;
-
-      const person_id = localStorage.getItem("person_id");
-      const feedbacks = await pb.collection("feedback").getList(1, 200, {
-        filter: pb.filter("person_id = {:id}", { id: person_id }),
-      });
-      feedbacks.items.sort((a, b) => a.selector[0].start - b.selector[0].start);
-      const annotations = feedbacks.items.map(fromRecord);
-      anno.setAnnotations(annotations, replace = true);
-      this.annotations = feedbacks.items;
+      this.person_id = localStorage.getItem("person_id");
+      this.feedbacks = (await pb.collection("feedback").getList(1, 200, {
+        filter: pb.filter("person_id = {:id}", { id: this.person_id }),
+      })).items;
+      this.feedbacks.sort((a, b) => a.selector[0].start - b.selector[0].start);
+      window.getSelection().empty();
     },
+
     close() {
       this.active_feedback = undefined;
-      window.getSelection().empty();
       this.sync();
     },
+
     async submit() {
       const nowMS = Date.now();
       if (this.active_feedback.id) {
@@ -121,14 +82,9 @@ export default {
         await pb.collection("feedback").create(this.active_feedback);
       }
       await this.sync();
-      window.getSelection().empty();
       // Make sure "Saving..." shows for at least 500ms
       await sleep(250 - (Date.now() - nowMS));
       this.active_feedback = undefined;
-    },
-    setActive(feedback_item) {
-      anno.scrollIntoView(feedback_item.id);
-      this.active_feedback = feedback_item;
     },
   },
 };
