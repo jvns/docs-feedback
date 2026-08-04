@@ -9,12 +9,11 @@
                v-bind:id="name + '-' + page_id"
                v-bind:value="name"
                v-model="feedback.emoji">
-        <label :style="feedback.emoji ? '' : 'display: block'"
-               class="emoji"
+        <label class="emoji"
                tabindex="0"
                v-bind:for="name + '-' + page_id">
           <span role="img" v-html="icons[name].emoji"></span>
-          <span v-if="!feedback.emoji" class="icon-desc">
+          <span class="icon-desc">
             {{icons[name].text}}
           </span>
         </label>

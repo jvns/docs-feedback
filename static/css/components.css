@@ -167,6 +167,10 @@ article.feedback-item {
 
     .icon-desc {
       margin-left: 0.5rem;
+
+      .enter-text & {
+        display: none;
+      }
     }
   }
 
