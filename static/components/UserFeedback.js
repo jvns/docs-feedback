@@ -1,14 +1,11 @@
 import template from "./UserFeedback.html";
 
-import { fromRecord, toRecord } from "../util.js";
+import { fromRecord, toRecord, pb } from "../util.js";
 
-import PocketBase from "../js/pocketbase.umd.js";
 import RecogitoJS from "../js/text-annotator.umd.js";
 
 window.process = { browser: true, env: { ENVIRONMENT: "BROWSER" } }; // Recogito needs this for some reason, idk why
 const { createTextAnnotator } = RecogitoJS;
-const pb = new PocketBase("http://127.0.0.1:8090");
-pb.autoCancellation(false);  // this seems to be causing test failures
 let anno = undefined;
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -17,7 +14,6 @@ export default {
   template: template,
   data() {
     return {
-      pb: pb,
       document: undefined,
       step: "name",
       errors: [],
