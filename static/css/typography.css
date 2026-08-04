@@ -25,3 +25,11 @@
   --size-4xl: 2.25rem;
   --line-height-4xl: 2.5em;
 }
+
+@font-face {
+  font-family: 'Faculty Glyphic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/FacultyGlyphic-Regular.ttf) format('truetype');
+}
