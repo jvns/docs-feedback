@@ -63,7 +63,8 @@ export default {
   },
 
   methods: {
-    async login() {
+    scrollTo(id) {
+      anno.scrollIntoView(id);
     },
   },
 };
