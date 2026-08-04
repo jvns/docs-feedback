@@ -231,6 +231,36 @@ article.feedback-item {
   }
 }
 
+form#login {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  width: 400px;
+  margin: 4rem auto;
+
+  .error {
+    grid-column: 1/-1;
+    color: red;
+  }
+
+  label {
+    /* vertically center?? */
+    line-height: 2.5rem;
+    margin-right: 1rem;
+  }
+
+  input {
+    border: 1px solid var(--pink-6);
+    padding: 0 .5rem;
+  }
+
+  button {
+    background-color: var(--pink-6);
+    padding: .5rem 2rem;
+    color: white;
+  }
+
+}
+
 form#name-email {
   display: grid;
   grid-template-columns: min-content 1fr min-content;
@@ -551,11 +581,13 @@ body {
   min-height: 400px;
   padding: 1rem;
 
-  p, ul {
+  p,
+  ul {
     margin: 1rem 0;
   }
+
   li {
-    list-style-type:disc;
+    list-style-type: disc;
     margin-left: 1rem;
-    }
+  }
 }

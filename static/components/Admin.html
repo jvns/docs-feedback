@@ -1,3 +1,15 @@
 <div>
+  <form v-if="!loggedIn"
+        id="login"
+        @submit.prevent="login">
+        <span class="error">{{error}}</span>
+    <label for="username">Username:</label>
+    <input id="username" ref="username">
 
+    <label for="password">Password:</label>
+    <input id="password"
+           type="password"
+           ref="password">
+    <button>Continue</button>
+  </form>
 </div>
