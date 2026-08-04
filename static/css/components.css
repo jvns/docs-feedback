@@ -25,6 +25,10 @@ nav {
 
   h1 {
     font-size: var(--size-4xl);
+
+    a {
+      text-decoration: none;
+    }
   }
 
   .byline {
