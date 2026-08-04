@@ -8,4 +8,5 @@ body {
   font-size: var(--size-xl);
   line-height: var(--line-height-xl);
   width: 100%;
+  color: var(--yin-9);
 }

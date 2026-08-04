@@ -3,11 +3,6 @@ input[type=radio]:checked+label {
   color: white;
 }
 
-body {
-  font-size: var(--size-xl);
-  line-height: var(--line-height-xl);
-  width: 100%;
-}
 
 a {
   text-decoration: underline;
@@ -15,12 +10,24 @@ a {
 
 nav {
   background-color: var(--pink-4);
-  padding: 2.5rem 0;
-  color: white;
+  font-family: Anton;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  font-family: "Faculty Glyphic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  letter-spacing: 1.1;
+  padding: 2.5rem calc((100vw - 1000px) / 2 + 2rem) ;
+  color: var(--yin-8);
   display: grid;
   grid-template-columns: max-content;
   justify-content: center;
   gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
   h1 {
     font-size: var(--size-4xl);
@@ -467,8 +474,7 @@ form.login {
   padding: 1rem;
   overflow: scroll;
 
-  h1 {
-    font-size: var(--size-2xl);
+  h2 {
     font-weight: bold;
   }
 }
@@ -477,6 +483,9 @@ form.login {
   background: white;
   border-radius: 1rem;
   padding: 1rem;
+  &>*:first-child {
+    margin-top: 0;
+  }
 
   h1 {
     font-size: var(--size-3xl);
