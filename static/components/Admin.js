@@ -9,23 +9,23 @@ export default {
     return {
       loggedIn: false,
       document: undefined,
+      feedbacks: [],
+      active_feedback: undefined,
+      hover_feedback: undefined,
     };
   },
 
   async mounted() {
     this.document = await util.getDocument("git-pull");
+    await this.sync();
   },
 
-  async sync() {
-    const feedbacks = await pb.collection("feedback").getList(1, 200, {
-      filter: pb.filter("person_id = {:id}", { id: this.document.id }),
-    });
-
-    feedbacks.items.sort((a, b) => a.selector[0].start - b.selector[0].start);
-    const annotations = feedbacks.items.map(util.fromRecord);
-    anno.setAnnotations(annotations, replace = true);
-    this.annotations = feedbacks.items;
+  methods: {
+    async sync() {
+      this.feedbacks = (await pb.collection("feedback").getList(1, 200, {
+        filter: pb.filter("document_id = {:id}", { id: this.document.id }),
+      })).items;
+      this.feedbacks.sort((a, b) => a.selector[0].start - b.selector[0].start);
+    },
   },
-
-  methods: {},
 };

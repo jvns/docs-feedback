@@ -1,14 +1,25 @@
 <div>
   <AdminLogin v-if="!loggedIn" @logged-in="loggedIn = true"> </AdminLogin>
-  <div v-else>
+  <div v-else class="user-feedback-page">
     <Annotator :document="document"
                :feedbacks="feedbacks"
+               :person_id="dont_need_this"
+               v-if="document"
                v-model:active_feedback="active_feedback"
                v-model:hover_feedback="hover_feedback">
     </Annotator>
-    <AdminFeedbacks :feedbacks="feedbacks"
-                    v-model:active_feedback="active_feedback"
-                    v-model:hover_feedback="hover_feedback">
-    </AdminFeedbacks>
+    <section class="comments">
+      <template v-for="feedback_item in feedbacks">
+        <article role="button"
+                 class="feedback-item"
+                 @mouseenter="hover_feedback = feedback_item"
+                 @mouseleave="hover_feedback = undefined"
+                 @click="active_feedback = feedback_item">
+
+          <span role="img" v-html="icons[feedback_item.emoji].emoji"> </span>
+          {{feedback_item.content}}
+        </article>
+      </template>
+    </section>
   </div>
 </div>
