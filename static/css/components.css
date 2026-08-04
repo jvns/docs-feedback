@@ -1,9 +1,3 @@
-input[type=radio]:checked+label {
-  background-color: #444;
-  color: white;
-}
-
-
 a {
   text-decoration: underline;
 }
@@ -19,7 +13,7 @@ nav {
   font-style: normal;
 
   letter-spacing: 1.1;
-  padding: 2.5rem calc((100vw - 1000px) / 2 + 2rem) ;
+  padding: 2.5rem calc((100vw - 1000px) / 2 + 2rem);
   color: var(--yin-8);
   display: grid;
   grid-template-columns: max-content;
@@ -94,7 +88,17 @@ article.feedback-item {
   width: 100%;
   font-size: var(--size-base);
   line-height: var(--line-height-base);
-  padding: 2rem;
+  padding: 1rem;
+  padding-top: 2rem;
+  text-align: center;
+
+  input[type=radio]:checked+label {
+    outline: 3px solid var(--pink-4);
+  }
+
+  label {
+    text-align: left;
+  }
 
   .btn.saving {
     background: var(--green-8);
@@ -102,17 +106,35 @@ article.feedback-item {
 
   [aria-label=Close] {
     cursor: pointer;
-    padding: 0.5rem;
+    padding: 0.375rem;
+    margin: .125rem;
     font-size: var(--size-lg);
     line-height: var(--line-height-lg);
     position: absolute;
     top: 0;
     right: 0;
+
+    &:hover {
+      background-color: var(--yin-1);
+      border-radius: 50%;
+    }
+
+    svg {
+      height: 1.25rem;
+    }
   }
 
   .icons {
-    margin: auto;
-    padding: .5rem;
+    &.enter-text {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: .5rem;
+    }
+
+    label:hover {
+      outline: 3px solid var(--pink-4);
+    }
   }
 
   input[type=radio] {
@@ -120,17 +142,27 @@ article.feedback-item {
   }
 
   label.emoji {
-    margin: 1rem 0;
     display: block;
     cursor: pointer;
     border-radius: 0.75rem;
     background-color: white;
     padding: 0.5rem;
 
+    .enter-text & {
+      width: 100%;
+      height: 2rem;
+      display: flex;
+    }
+
+    .pick-icon & {
+      display: block;
+      margin: .5rem 0;
+    }
+
     [role=img] {
       display: inline-block;
-      width: 1rem;
-      vertical-align: middle;
+      width: 1.1rem;
+      margin: auto;
     }
 
     .icon-desc {
@@ -144,20 +176,12 @@ article.feedback-item {
     display: block;
     height: 10rem;
     width: 100%;
-    border-radius: 0.25rem;
+    border-radius: .5rem;
     border-width: 1px;
     border-color: var(--gray-2);
     padding: 0.5rem;
   }
 
-  @media (max-width: 1200px) {
-    & {
-      width: 300px;
-      font-size: var(--size-base);
-      line-height: var(--line-height-base);
-      padding: 1rem;
-    }
-  }
 }
 
 .adminpage-component {
@@ -483,6 +507,7 @@ form.login {
   background: white;
   border-radius: 1rem;
   padding: 1rem;
+
   &>*:first-child {
     margin-top: 0;
   }
