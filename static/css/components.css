@@ -541,3 +541,21 @@ form.login {
 body {
   background: var(--pink-1);
 }
+
+.about {
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 4rem;
+  border-radius: 1rem;
+  background: white;
+  min-height: 400px;
+  padding: 1rem;
+
+  p, ul {
+    margin: 1rem 0;
+  }
+  li {
+    list-style-type:disc;
+    margin-left: 1rem;
+    }
+}
