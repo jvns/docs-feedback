@@ -44,8 +44,6 @@ export default {
       await this.$nextTick();
     },
     async setupAnnotator() {
-      const person_id = localStorage.getItem("person_id");
-
       await this.sync();
     },
     async save_name_email() {

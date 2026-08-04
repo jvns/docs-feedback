@@ -3,7 +3,7 @@
   <div v-else class="user-feedback-page">
     <Annotator :document="document"
                :feedbacks="feedbacks"
-               :person_id="dont_need_this"
+               :person_id="'dont_need_this'"
                v-if="document"
                v-model:active_feedback="active_feedback"
                v-model:hover_feedback="hover_feedback">
