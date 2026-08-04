@@ -48,8 +48,7 @@ export default {
     },
     async save_name_email() {
       const record = await pb.collection("people").create({
-        name: this.$refs.name,
-        // email: this.$refs.email,
+        name: this.$refs.name.value,
       });
       localStorage.setItem("person_id", record.id);
       this.step = "feedback";

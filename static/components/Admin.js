@@ -24,6 +24,7 @@ export default {
     async sync() {
       this.feedbacks = (await pb.collection("feedback").getList(1, 200, {
         filter: pb.filter("document_id = {:id}", { id: this.document.id }),
+        expand: "person_id",
       })).items;
       this.feedbacks.sort((a, b) => a.selector[0].start - b.selector[0].start);
     },
