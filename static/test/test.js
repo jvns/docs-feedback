@@ -1,4 +1,5 @@
 const { within } = TestingLibraryDom;
+import * as Vue from "../js/vue.esm-browser.js";
 
 function StorageMock() {
   // from https://stackoverflow.com/a/26177872
