@@ -1,0 +1,16 @@
+static/components/UserFeedback.html
+  h_47bf5c380f00d8 16
+static/components/UserFeedback.js
+  h_47bf5c380f00d8 18,65
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "530b3dfd724a759767415d46522d6e115f0fa282",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
