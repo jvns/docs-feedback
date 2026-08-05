@@ -25,8 +25,7 @@ export default {
 
   watch: {
     feedbacks: function (new_feedbacks, _old_feedback) {
-      const annotations = new_feedbacks.map(util.fromRecord);
-      anno.setAnnotations(annotations, replace = true);
+      this.set_feedbacks(new_feedbacks);
     },
     active_feedback: function (new_feedback, _old_feedback) {
       if (new_feedback?.id) {
@@ -60,11 +59,16 @@ export default {
       }];
       this.$emit("update:active_feedback", util.toRecord(annotation));
     });
+    this.set_feedbacks(this.feedbacks);
   },
 
   methods: {
     scrollTo(id) {
       anno.scrollIntoView(id);
+    },
+    set_feedbacks(feedbacks) {
+      const annotations = feedbacks.map(util.fromRecord);
+      anno.setAnnotations(annotations, replace = true);
     },
   },
 };
