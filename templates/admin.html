@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="/style.css">
   <script src="/bundle.js" defer></script>
   <meta charset="utf-8">
-  <title>admin</title>
+  <title>admin: {{.DocName}}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -15,7 +15,7 @@
     <a href="/about.html"> About </a>
   </nav>
   <main id="app">
-    <admin />
+    <admin doc_name="{{.DocName}}"></admin>
   </main>
 </body>
 </html>

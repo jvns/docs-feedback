@@ -17,8 +17,7 @@ export default {
   },
 
   async mounted() {
-    const doc_name = document.location.hash.substr(1);
-    this.document = await util.getDocument(doc_name);
+    this.document = await util.getDocument(this.doc_name);
     await this.sync();
   },
 

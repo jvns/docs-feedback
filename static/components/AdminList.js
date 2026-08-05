@@ -28,7 +28,7 @@ export default {
       try {
         await pb.collection("documents").create({
           name: this.$refs.name.value,
-          content: this.$refs.name.value,
+          content: this.$refs.name.content,
         });
         await this.sync();
       } catch (e) {
