@@ -39,8 +39,8 @@ export default {
       }
     },
     async getDocument() {
-      const doc_name = "git-pull";
-      this.document = await util.getDocument("git-pull");
+      const doc_name = "git-add";
+      this.document = await util.getDocument(doc_name);
       document.title = "feedback: " + doc_name;
       await this.$nextTick();
     },
@@ -58,7 +58,10 @@ export default {
     async sync() {
       this.person_id = localStorage.getItem("person_id");
       this.feedbacks = (await pb.collection("feedback").getList(1, 200, {
-        filter: pb.filter("person_id = {:id}", { id: this.person_id }),
+        filter: pb.filter(
+          "person_id = {:person_id} && document_id = {:document_id}",
+          { person_id: this.person_id, document_id: this.document.id },
+        ),
       })).items;
       this.feedbacks.sort((a, b) => a.selector[0].start - b.selector[0].start);
       window.getSelection().empty();
