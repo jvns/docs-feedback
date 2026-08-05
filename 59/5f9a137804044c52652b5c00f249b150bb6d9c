@@ -1,0 +1,20 @@
+static/about.html
+  h_47bf5c380f00d8 14-17
+static/css/components.css
+  h_47bf5c380f00d8 6-21,24-25
+static/images/after-its-fixed.svg
+  h_47bf5c380f00d8 1-126
+static/images/bug-logo.svg
+  h_47bf5c380f00d8 1-181
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "595f9a137804044c52652b5c00f249b150bb6d9c",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
