@@ -587,3 +587,49 @@ body {
     margin-left: 1rem;
   }
 }
+
+.admin-list {
+  width: 800px;
+  margin: auto;
+  margin-top: 3rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  background: white;
+
+  .admin-doc {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    align-items: center;
+    gap: .5rem;
+    column-gap: 1rem;
+  }
+
+  h2 {
+    font-size: var(--size-lg);
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  form {
+    display: grid;
+    width: 600px;
+    grid-template-columns: max-content 1fr;
+    gap: 1rem;
+
+    input,
+    textarea {
+      outline: 1px solid black;
+      padding: .5rem;
+    }
+
+    button,
+    .error {
+      grid-column: 1/-1;
+    }
+  }
+}

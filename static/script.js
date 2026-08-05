@@ -4,6 +4,7 @@ import LoginComponent from "./components/Login";
 import AnnotatorComponent from "./components/Annotator";
 import AdminComponent from "./components/Admin";
 import AdminLoginComponent from "./components/AdminLogin";
+import AdminListComponent from "./components/AdminList";
 import UserFeedbackComponent from "./components/UserFeedback";
 import * as icons from "./components/icons.json";
 
@@ -13,6 +14,7 @@ const components = {
   "Annotator": AnnotatorComponent,
   "Admin": AdminComponent,
   "AdminLogin": AdminLoginComponent,
+  "adminlist": AdminListComponent,
   "userfeedback": UserFeedbackComponent,
 };
 
