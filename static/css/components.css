@@ -4,22 +4,18 @@ a {
 
 nav {
   background-color: var(--pink-4);
-  font-family: Anton;
-  font-weight: bold;
-  text-transform: uppercase;
 
+  color: var(--yin-8);
+  text-transform: uppercase;
   font-family: "Faculty Glyphic", sans-serif;
   font-weight: 400;
   font-style: normal;
-
   letter-spacing: 1.1;
+
   padding: 2.5rem calc((100vw - 1000px) / 2 + 2rem);
-  color: var(--yin-8);
-  display: grid;
-  grid-template-columns: max-content;
-  justify-content: center;
-  gap: 1rem;
+
   display: flex;
+  gap: 1rem;
   flex-direction: row;
   justify-content: space-between;
 
