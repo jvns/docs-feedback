@@ -10,6 +10,7 @@ export default {
       documents: undefined,
       loggedIn: false,
       error: "",
+      doc_name: undefined,
     };
   },
 

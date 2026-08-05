@@ -5,6 +5,7 @@ const pb = util.pb;
 
 export default {
   template: template,
+  props: ["doc_name"],
   data() {
     return {
       loggedIn: false,
@@ -16,7 +17,8 @@ export default {
   },
 
   async mounted() {
-    this.document = await util.getDocument("git-pull");
+    const doc_name = document.location.hash.substr(1);
+    this.document = await util.getDocument(doc_name);
     await this.sync();
   },
 
