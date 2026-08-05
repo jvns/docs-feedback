@@ -2,20 +2,26 @@
   <AdminLogin v-if="!loggedIn" @logged-in="loggedIn = true"> </AdminLogin>
   <div v-else class="admin-list container">
     <h2> Documents </h2>
-    <div class="admin-doc" v-for="document in documents">
-      <label>{{document.name}}</label>
-      <a class="btn" href="/admin.html#{{document.name}}">View</a>
-      <a class="btn" href="/#{{document.name}}">Link</a>
+    <div class="admin-doc">
+      <template v-for="document in documents">
+        <label>{{document.name}}</label>
+        <a class="btn" :href="'/admin.html#' + document.name">view feedback</a>
+        <a class="btn" :href="'/#' + document.name">feedback link</a>
+      </template>
     </div>
 
     <h2> Create new document </h2>
     <form @submit.prevent="create">
       <span class="error">{{error}}</span>
       <label for="name"> Name: </label>
-      <input ref="name" id="name" required>
+      <input ref="name"
+             id="name"
+             required>
 
       <label for="content"> HTML content: </label>
-      <textarea ref="content" id="content" required></textarea>
+      <textarea ref="content"
+                id="content"
+                required></textarea>
 
       <button class="btn"> Create </button>
     </form>

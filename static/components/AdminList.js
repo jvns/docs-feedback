@@ -9,17 +9,31 @@ export default {
     return {
       documents: undefined,
       loggedIn: false,
+      error: "",
     };
   },
 
   async mounted() {
-    this.documents = (await pb.collection("documents").getList(1, 200, {
-      // filter: pb.filter("document_id = {:id}", { id: this.document.id }),
-    })).items;
+    await this.sync();
   },
 
   methods: {
     async sync() {
+      this.documents = (await pb.collection("documents").getList(1, 200, {
+        // filter: pb.filter("document_id = {:id}", { id: this.document.id }),
+      })).items;
+    },
+    async create() {
+      try {
+        await pb.collection("documents").create({
+          name: this.$refs.name.value,
+          content: this.$refs.name.value,
+        });
+        await this.sync();
+      } catch (e) {
+        this.error = e;
+        h;
+      }
     },
   },
 };
