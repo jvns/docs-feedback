@@ -1,0 +1,26 @@
+migrations/1785950174_updated_feedback.go
+  h_47bf5c380f00d8 1-60
+migrations/1785950194_updated_feedback.go
+  h_47bf5c380f00d8 1-62
+migrations/1785950209_updated_people.go
+  h_47bf5c380f00d8 1-62
+migrations/1785950243_updated_feedback.go
+  h_47bf5c380f00d8 1-62
+migrations/1785950391_updated_feedback.go
+  h_47bf5c380f00d8 1-54
+migrations/1785950398_updated_feedback.go
+  h_47bf5c380f00d8 1-60
+migrations/1785950416_updated_documents.go
+  h_47bf5c380f00d8 1-62
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "6e23efb6070a300f4cbee9c4c7ac92c8f6c2d268",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
