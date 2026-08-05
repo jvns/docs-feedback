@@ -1,27 +1,28 @@
 <div>
   <AdminLogin v-if="!loggedIn" @logged-in="loggedIn = true"> </AdminLogin>
   <div v-else class="user-feedback-page">
-    <Annotator :document="document"
-               :feedbacks="feedbacks"
-               :person_id="'dont_need_this'"
-               ref="annotator"
-               v-if="document"
-               v-model:active_feedback="active_feedback"
-               v-model:hover_feedback="hover_feedback">
-    </Annotator>
-    <section class="comments">
-      <template v-for="feedback_item in feedbacks">
-        <article role="button"
-                 class="feedback-item"
-                 @mouseenter="hover_feedback = feedback_item"
-                 @mouseleave="hover_feedback = undefined"
-                 @click="active_feedback = feedback_item; $refs.annotator.scrollTo(feedback_item.id)">
+    <template v-if="document">
+      <Annotator :document="document"
+                 :feedbacks="feedbacks"
+                 :person_id="'dont_need_this'"
+                 ref="annotator"
+                 v-model:active_feedback="active_feedback"
+                 v-model:hover_feedback="hover_feedback">
+      </Annotator>
+      <section class="comments">
+        <template v-for="feedback_item in feedbacks">
+          <article role="button"
+                   class="feedback-item"
+                   @mouseenter="hover_feedback = feedback_item"
+                   @mouseleave="hover_feedback = undefined"
+                   @click="active_feedback = feedback_item; $refs.annotator.scrollTo(feedback_item.id)">
 
-          <span role="img" v-html="icons[feedback_item.emoji].emoji"> </span>
-          {{feedback_item.expand?.person_id?.name}}:
-          {{feedback_item.content}}
-        </article>
-      </template>
-    </section>
+            <span role="img" v-html="icons[feedback_item.emoji].emoji"> </span>
+            {{feedback_item.expand?.person_id?.name}}:
+            {{feedback_item.content}}
+          </article>
+        </template>
+      </section>
+    </template>
   </div>
 </div>
