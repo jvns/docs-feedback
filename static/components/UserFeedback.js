@@ -15,6 +15,7 @@ export default {
       active_feedback: undefined,
       hover_feedback: undefined,
       person_id: undefined,
+      firstSyncDone: false,
     };
   },
 
@@ -61,6 +62,7 @@ export default {
       })).items;
       this.feedbacks.sort((a, b) => a.selector[0].start - b.selector[0].start);
       window.getSelection().empty();
+      this.firstSyncDone = true;
     },
 
     close() {

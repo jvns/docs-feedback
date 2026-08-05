@@ -13,11 +13,10 @@
     </form>
   </dialog>
 
-  <div class="user-feedback-page">
+  <div class="user-feedback-page" v-if="firstSyncDone">
     <Annotator :document="document"
                :feedbacks="feedbacks"
                :person_id="person_id"
-               v-if="document && person_id"
                v-model:active_feedback="active_feedback"
                v-model:hover_feedback="hover_feedback">
     </Annotator>
