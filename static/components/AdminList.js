@@ -28,8 +28,10 @@ export default {
       try {
         await pb.collection("documents").create({
           name: this.$refs.name.value,
-          content: this.$refs.name.content,
+          content: this.$refs.content.value,
         });
+        this.$refs.name.value="";
+        this.$refs.content.value="";
         await this.sync();
       } catch (e) {
         this.error = e;
