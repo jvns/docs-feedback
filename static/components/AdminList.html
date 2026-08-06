@@ -6,7 +6,7 @@
       <template v-for="document in documents">
         <label>{{document.name}}</label>
         <a class="btn" :href="'/admin/' + document.name" style="background-color: var(--purple-4)">view feedback</a>
-        <a class="btn" :href="'/#' + document.name">feedback link</a>
+        <a class="btn" :href="'/feedback/' + document.name">feedback link</a>
       </template>
     </div>
 

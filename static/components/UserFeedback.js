@@ -7,6 +7,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export default {
   template: template,
+  props: ['doc_name'],
   data() {
     return {
       document: undefined,
@@ -45,9 +46,7 @@ export default {
       }
     },
     async getDocument() {
-      const doc_name = "git-add";
-      this.document = await util.getDocument(doc_name);
-      document.title = "feedback: " + doc_name;
+      this.document = await util.getDocument(this.doc_name);
       await this.$nextTick();
     },
     async setupAnnotator() {

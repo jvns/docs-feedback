@@ -27,6 +27,7 @@ func main() {
 
 		adminListTmpl, _ := template.ParseFS(TemplatesDir, "templates/admin-list.html")
 		adminTmpl, _ := template.ParseFS(TemplatesDir, "templates/admin.html")
+		userFeedbackTmpl, _ := template.ParseFS(TemplatesDir, "templates/user-feedback.html")
 
 		se.Router.GET("/admin/", func(e *core.RequestEvent) error {
 			e.Response.Header().Set("Content-Type", "text/html")
@@ -37,6 +38,12 @@ func main() {
 			docName := e.Request.PathValue("doc_name")
 			e.Response.Header().Set("Content-Type", "text/html")
 			return adminTmpl.Execute(e.Response, map[string]string{"DocName": docName})
+		})
+
+		se.Router.GET("/feedback/{doc_name}", func(e *core.RequestEvent) error {
+			docName := e.Request.PathValue("doc_name")
+			e.Response.Header().Set("Content-Type", "text/html")
+			return userFeedbackTmpl.Execute(e.Response, map[string]string{"DocName": docName})
 		})
 
 		se.Router.GET("/{path...}", apis.Static(staticFS, false))
