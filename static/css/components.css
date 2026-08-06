@@ -542,6 +542,10 @@ form.login {
   border-radius: 1rem;
   padding: 1rem;
 
+  pre {
+    white-space: pre-wrap;
+  }
+
   &>*:first-child {
     margin-top: 0;
   }
