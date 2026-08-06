@@ -1,0 +1,20 @@
+main.go
+  h_47bf5c380f00d8 30,43-48
+static/components/AdminList.html
+  h_47bf5c380f00d8 9
+static/components/UserFeedback.js
+  h_47bf5c380f00d8 10,49
+templates/user-feedback.html
+  h_47bf5c380f00d8 8,18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "e38d424cdd019ce6f424758bc98dee0dffde1e79",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
