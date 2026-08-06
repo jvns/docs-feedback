@@ -20,6 +20,12 @@ export default {
   },
 
   async mounted() {
+    // close modal on Esc
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        this.close();
+      }
+    });
     this.step = this.getStep();
     await this.getDocument();
     if (this.step == "name") {

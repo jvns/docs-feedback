@@ -25,7 +25,6 @@
         <h2> Your comments </h2>
         <Modal v-if="active_feedback && !active_feedback.id"
                @modal-close="close"
-               @keydown.esc="close"
                @modal-submit="submit"
                v-bind:feedback="active_feedback"> </Modal>
 
@@ -36,7 +35,6 @@
         <template v-for="feedback_item in feedbacks">
           <Modal v-if="active_feedback && active_feedback.id == feedback_item.id"
                  @modal-close="close"
-                 @keydown.esc="close"
                  @modal-submit="submit"
                  v-bind:feedback="active_feedback"> </Modal>
 
