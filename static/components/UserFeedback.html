@@ -13,15 +13,16 @@
     </form>
   </dialog>
 
-  <div class="user-feedback-page" v-if="firstSyncDone">
+  <div class="user-feedback-page">
     <Annotator :document="document"
                :feedbacks="feedbacks"
                :person_id="person_id"
+               v-if="document"
                v-model:active_feedback="active_feedback"
                v-model:hover_feedback="hover_feedback">
     </Annotator>
     <div style="position: relative;">
-      <section class="comments">
+      <section class="comments" v-if="firstSyncDone">
         <h2> Your comments </h2>
         <Modal v-if="active_feedback && !active_feedback.id"
                @modal-close="close"
