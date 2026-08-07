@@ -246,9 +246,24 @@ func init() {
 						"minSelect": 0,
 						"name": "person_id",
 						"presentable": false,
-						"required": false,
+						"required": true,
 						"system": false,
 						"type": "relation"
+					},
+					{
+						"autogeneratePattern": "",
+						"help": "",
+						"hidden": false,
+						"id": "text4274335913",
+						"max": 0,
+						"min": 0,
+						"name": "content",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": false,
+						"type": "text"
 					},
 					{
 						"help": "",
@@ -281,7 +296,7 @@ func init() {
 						"pattern": "",
 						"presentable": false,
 						"primaryKey": false,
-						"required": false,
+						"required": true,
 						"system": false,
 						"type": "text"
 					},
@@ -290,9 +305,9 @@ func init() {
 						"hidden": false,
 						"id": "akhdik96",
 						"maxSize": 0,
-						"name": "annotation",
+						"name": "selector",
 						"presentable": false,
-						"required": false,
+						"required": true,
 						"system": false,
 						"type": "json"
 					},
@@ -306,7 +321,7 @@ func init() {
 						"minSelect": 0,
 						"name": "document_id",
 						"presentable": false,
-						"required": false,
+						"required": true,
 						"system": false,
 						"type": "relation"
 					},
@@ -364,13 +379,13 @@ func init() {
 						"help": "",
 						"hidden": false,
 						"id": "bpxoq9tp",
-						"max": 0,
+						"max": 200,
 						"min": 0,
 						"name": "name",
 						"pattern": "",
 						"presentable": false,
 						"primaryKey": false,
-						"required": false,
+						"required": true,
 						"system": false,
 						"type": "text"
 					},
@@ -405,8 +420,8 @@ func init() {
 				"viewRule": ""
 			},
 			{
-				"createRule": "@request.auth.role = \"admin\"",
-				"deleteRule": "@request.auth.role = \"admin\"",
+				"createRule": "(@request.auth.role = \"admin\" && @request.auth.id = user.id)",
+				"deleteRule": "(@request.auth.role = \"admin\" && @request.auth.id = user.id)",
 				"fields": [
 					{
 						"autogeneratePattern": "[a-z0-9]{15}",
@@ -428,13 +443,13 @@ func init() {
 						"help": "",
 						"hidden": false,
 						"id": "pduxwynv",
-						"max": 0,
+						"max": 100000,
 						"min": 0,
 						"name": "content",
 						"pattern": "",
 						"presentable": false,
 						"primaryKey": false,
-						"required": false,
+						"required": true,
 						"system": false,
 						"type": "text"
 					},
@@ -449,9 +464,23 @@ func init() {
 						"pattern": "",
 						"presentable": false,
 						"primaryKey": false,
-						"required": false,
+						"required": true,
 						"system": false,
 						"type": "text"
+					},
+					{
+						"cascadeDelete": false,
+						"collectionId": "_pb_users_auth_",
+						"help": "",
+						"hidden": false,
+						"id": "relation2375276105",
+						"maxSelect": 0,
+						"minSelect": 0,
+						"name": "user",
+						"presentable": false,
+						"required": true,
+						"system": false,
+						"type": "relation"
 					},
 					{
 						"hidden": false,
@@ -475,12 +504,14 @@ func init() {
 					}
 				],
 				"id": "iyprj036ttb4k1l",
-				"indexes": [],
-				"listRule": "@request.auth.role = \"admin\"",
+				"indexes": [
+					"CREATE UNIQUE INDEX ` + "`" + `idx_6n2r471svl` + "`" + ` ON ` + "`" + `documents` + "`" + ` (` + "`" + `name` + "`" + `)"
+				],
+				"listRule": "(@request.auth.role = \"admin\" && @request.auth.id = user.id) || name != \"\"",
 				"name": "documents",
 				"system": false,
 				"type": "base",
-				"updateRule": "@request.auth.role = \"admin\"",
+				"updateRule": "(@request.auth.role = \"admin\" && @request.auth.id = user.id)",
 				"viewRule": ""
 			},
 			{
