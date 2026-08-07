@@ -1,0 +1,14 @@
+migrations/1786133603_collections_snapshot.go
+  h_47bf5c380f00d8 249,253-267,299,308,310,324,382,388,423-424,446,452,467,471-484,507-510,514
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "143266602fd0b6c200a3ea28bf65e8d264a83ffa",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
