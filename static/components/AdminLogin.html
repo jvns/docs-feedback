@@ -14,27 +14,9 @@
     <button class="btn" @click="state = 'reset'">Reset password?</button>
   </form>
 
-
   <form v-if="state == 'reset'" @submit.prevent="reset">
     <label for="email">Email:</label>
     <input id="email" ref="email">
     <button type="submit">Continue</button>
   </form>
-
-  <form v-if="state == 'reset_sent'" @submit.prevent="reset_confirm">
-    <label for="token">Token:</label>
-    <input id="token" ref="token">
-
-    <label for="reset_password">Password:</label>
-    <input id="reset_password"
-           type="reset_password"
-           ref="reset_password">
-
-    <label for="reset_password_confirm">Confirm Password:</label>
-    <input id="reset_password_confirm"
-           type="reset_password_confirm"
-           ref="reset_password_confirm">
-    <button type="submit">Confirm</button>
-  </form>
-
 </div>
