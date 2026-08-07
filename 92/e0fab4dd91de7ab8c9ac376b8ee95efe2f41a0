@@ -1,0 +1,14 @@
+static/components/AdminLogin.js
+  h_47bf5c380f00d8 42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "92e0fab4dd91de7ab8c9ac376b8ee95efe2f41a0",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
