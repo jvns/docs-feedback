@@ -20,18 +20,21 @@ export default {
 
   methods: {
     async sync() {
-      this.documents = (await pb.collection("documents").getList(1, 200, {
-        // filter: pb.filter("document_id = {:id}", { id: this.document.id }),
-      })).items;
+      this.documents = (
+        await pb.collection("documents").getList(1, 200, {
+          filter: pb.filter("user = {:id}", { id: pb.authStore.record.id }),
+        })
+      ).items;
     },
     async create() {
       try {
         await pb.collection("documents").create({
-          name: this.$refs.name.value,
           content: this.$refs.content.value,
+          name: this.$refs.name.value,
+          user: pb.authStore.record.id,
         });
-        this.$refs.name.value="";
-        this.$refs.content.value="";
+        this.$refs.name.value = "";
+        this.$refs.content.value = "";
         await this.sync();
       } catch (e) {
         this.error = e;
