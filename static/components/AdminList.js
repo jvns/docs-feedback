@@ -20,6 +20,9 @@ export default {
 
   methods: {
     async sync() {
+      if (!this.loggedIn) {
+        return;
+      }
       this.documents = (
         await pb.collection("documents").getList(1, 200, {
           filter: pb.filter("user = {:id}", { id: pb.authStore.record.id }),

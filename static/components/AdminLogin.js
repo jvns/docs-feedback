@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       error: "",
+      state: "login",
     };
   },
 
@@ -20,10 +21,12 @@ export default {
   methods: {
     async login() {
       try {
-        await pb.collection("users").authWithPassword(
-          this.$refs.username.value,
-          this.$refs.password.value,
-        );
+        await pb
+          .collection("users")
+          .authWithPassword(
+            this.$refs.username.value,
+            this.$refs.password.value,
+          );
       } catch {
         this.error = "wrong password";
         this.$refs.username.value = "";
@@ -32,6 +35,23 @@ export default {
       if (pb.authStore.isValid) {
         this.$emit("logged-in");
       }
+    },
+
+    async reset() {
+      await pb.collection("users").requestPasswordReset(this.$refs.email.value);
+      this.state = "reset_sent";
+      console.log("reset!!");
+    },
+
+    async reset_confirm() {
+      await pb
+        .collection("users")
+        .confirmPasswordReset(
+          "RESET_TOKEN",
+          "NEW_PASSWORD",
+          "NEW_PASSWORD_CONFIRM",
+        );
+      this.state = "login";
     },
   },
 };
