@@ -6,6 +6,8 @@ import (
 	"io/fs"
 	"log"
 
+	_ "github.com/jvns/text-feedback/migrations"
+
 	"github.com/pocketbase/pocketbase"
 	"github.com/pocketbase/pocketbase/apis"
 	"github.com/pocketbase/pocketbase/core"

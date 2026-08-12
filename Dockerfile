@@ -18,6 +18,5 @@ COPY --from=builder /docs-feedback /usr/local/bin/
 RUN apt-get update 
 RUN apt-get install -y ca-certificates curl
 RUN mkdir -p /pb
-COPY migrations ./
 
 CMD ["docs-feedback", "serve", "--http=0.0.0.0:8080"]
