@@ -1,0 +1,14 @@
+scripts/build_prod.sh
+  h_47bf5c380f00d8 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "b4c953968837aef36b5281efd9c94e19269babdb",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
