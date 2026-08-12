@@ -1,0 +1,20 @@
+.dockerignore
+  h_47bf5c380f00d8 1-5
+.github/workflows/fly-deploy.yml
+  h_47bf5c380f00d8 1-19
+Dockerfile
+  h_47bf5c380f00d8 1-19
+fly.toml
+  h_47bf5c380f00d8 1-28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "5543db946eb38aa6cd92a4205df3a25980d2e6d7",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
