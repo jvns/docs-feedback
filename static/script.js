@@ -29,3 +29,9 @@ for (const [c, v] of Object.entries(components)) {
   app.component(c, v);
 }
 app.mount("#app");
+
+window.logout = () => {
+  localStorage.removeItem('pocketbase_auth');
+  window.location="/admin";
+  window.location.reload();
+}
