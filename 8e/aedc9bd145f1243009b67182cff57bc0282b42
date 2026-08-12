@@ -1,0 +1,14 @@
+Dockerfile
+  h_47bf5c380f00d8 15,17,20-21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "8eaedc9bd145f1243009b67182cff57bc0282b42",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
