@@ -1,0 +1,19 @@
+main.go
+  s_cce3a087c25912::t_a565734fda9e2a 9-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "a51740eef87781a4ff45a5e60c8af3bd757699b7",
+  "prompts": {},
+  "sessions": {
+    "s_cce3a087c25912": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4e4528d4-ac2b-416f-9e1a-14aa49330817",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
