@@ -227,15 +227,25 @@ article.feedback-item {
   }
 }
 
-form#login {
+form.login {
   display: grid;
-  grid-template-columns: min-content 1fr;
+  grid-template-columns: max-content 1fr;
   width: 400px;
   margin: 4rem auto;
+  gap: 1rem;
+
+  h2 {
+    font-size: var(--size-2xl);
+    font-weight: bold;
+    grid-column: 1/-1;
+  }
 
   .error {
     grid-column: 1/-1;
-    color: red;
+    background: var(--pink-2);
+    border-radius: 1rem;
+    padding: 1rem;
+    color: var(--pink-9);
   }
 
   label {
@@ -249,10 +259,11 @@ form#login {
     padding: 0 .5rem;
   }
 
-  button {
+  button[type=submit] {
     background-color: var(--pink-6);
     padding: .5rem 2rem;
     color: white;
+    grid-column: 1/-1;
   }
 
 }
@@ -498,25 +509,6 @@ body:has(dialog[open]) {
 }
 
 /* css/style.css */
-
-form.login {
-  max-width: 500px;
-  margin: 5rem auto;
-
-  input {
-    background: var(--pink-1);
-    padding: .5rem;
-    margin: 1rem 0;
-    display: block;
-    width: 100%;
-    border-radius: .5rem;
-  }
-
-  button.btn {
-    background: var(--pink-5);
-    width: 100%;
-  }
-}
 
 :root {
   --image-width: 600px;

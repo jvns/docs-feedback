@@ -39,7 +39,7 @@ export default {
 
     async reset() {
       await pb.collection("users").requestPasswordReset(this.$refs.email.value);
-      this.error = "Reset email set! Come back once you've reset your password";
+      this.error = "If you have an account, we've sent you a reset email! Come back here once you've reset your password.";
       this.state = "login";
     },
   },

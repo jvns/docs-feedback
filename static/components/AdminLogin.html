@@ -1,8 +1,8 @@
 <div>
-  <form id="login"
+  <form class="login"
         v-if="state == 'login'"
         @submit.prevent="login">
-    <span class="error">{{error}}</span>
+    <span v-if="error" class="error">{{error}}</span>
     <label for="username">Username or email:</label>
     <input id="username" ref="username">
 
@@ -10,13 +10,16 @@
     <input id="password"
            type="password"
            ref="password">
-    <button type="submit">Continue</button>
-    <button class="btn" @click="state = 'reset'">Reset password?</button>
+    <button type="submit">Login</button>
+    <a href="#" @click="state = 'reset'">Reset password?</a>
   </form>
 
-  <form v-if="state == 'reset'" @submit.prevent="reset">
+  <template v-if="state == 'reset'">
+  <form class="login" @submit.prevent="reset">
+    <h2> Reset Password </h2>
     <label for="email">Email:</label>
     <input id="email" ref="email">
     <button type="submit">Continue</button>
   </form>
+  </template>
 </div>
