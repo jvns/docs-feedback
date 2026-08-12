@@ -19,6 +19,10 @@ export default {
   },
 
   methods: {
+    login() {
+      this.loggedIn = true;
+      this.sync()
+    },
     async sync() {
       if (!this.loggedIn) {
         return;

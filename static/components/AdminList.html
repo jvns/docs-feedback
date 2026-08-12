@@ -1,11 +1,13 @@
 <div>
-  <AdminLogin v-if="!loggedIn" @logged-in="loggedIn = true"> </AdminLogin>
+  <AdminLogin v-if="!loggedIn" @logged-in="login()"> </AdminLogin>
   <div v-else class="admin-list container">
     <h2> Documents </h2>
     <div class="admin-doc">
       <template v-for="document in documents">
         <label>{{document.name}}</label>
-        <a class="btn" :href="'/admin/' + document.name" style="background-color: var(--purple-4)">view feedback</a>
+        <a class="btn"
+           :href="'/admin/' + document.name"
+           style="background-color: var(--purple-4)">view feedback</a>
         <a class="btn" :href="'/feedback/' + document.name">feedback link</a>
       </template>
     </div>
