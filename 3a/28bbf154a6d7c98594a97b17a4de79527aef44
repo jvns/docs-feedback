@@ -1,0 +1,29 @@
+static/css/typography.css
+  s_1929e97c529f87::t_81827f10146fb4 34
+scripts/build_prod.sh
+  s_f76e5eb8045c44::t_74b28ae6b5f74e 2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "3a28bbf154a6d7c98594a97b17a4de79527aef44",
+  "prompts": {},
+  "sessions": {
+    "s_1929e97c529f87": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "654eea47-3b2c-416b-bd37-f242ffca7a27",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Julia Evans <julia@jvns.ca>"
+    },
+    "s_f76e5eb8045c44": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3b33024d-07ba-4f0b-8074-5d8cabd83535",
+        "model": "unknown"
+      },
+      "human_author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
