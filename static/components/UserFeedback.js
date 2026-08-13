@@ -97,6 +97,13 @@ export default {
       const nowMS = Date.now();
       this.modal_saving = true;
       this.modal_error = undefined;
+
+      if (!this.active_feedback.content) {
+        this.modal_error = "Feedback can't be blank";
+        this.modal_saving = false;
+        return;
+      }
+
       try {
         if (this.active_feedback.id) {
           await pb
