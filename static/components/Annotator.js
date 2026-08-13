@@ -42,7 +42,7 @@ export default {
     // Vue doesn't try to manage the HTML
     this.$refs.html.innerHTML = this.document.content;
     anno = createTextAnnotator(this.$refs.html, {
-      "user": { "id": this.person_id },
+      user: { id: this.person_id },
     });
 
     anno.on("clickAnnotation", (annotation) => {
@@ -51,10 +51,12 @@ export default {
 
     anno.on("createAnnotation", (annotation) => {
       annotation.id = undefined; // API should set the initial ID
-      annotation.bodies = [{
-        document_id: this.document.id,
-        content: "",
-      }];
+      annotation.bodies = [
+        {
+          document_id: this.document.id,
+          content: "",
+        },
+      ];
       this.$emit("update:active_feedback", util.toRecord(annotation));
     });
     this.set_feedbacks(this.feedbacks);
@@ -66,7 +68,7 @@ export default {
     },
     set_feedbacks(feedbacks) {
       const annotations = feedbacks.map(util.fromRecord);
-      anno.setAnnotations(annotations, replace = true);
+      anno.setAnnotations(annotations, (replace = true));
     },
   },
 };
