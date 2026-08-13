@@ -1,0 +1,20 @@
+static/components/Modal.html
+  h_47bf5c380f00d8 4-9,11-12,40-43,45-47
+static/components/UserFeedback.html
+  h_47bf5c380f00d8 30-32,42-44
+static/components/UserFeedback.js
+  h_47bf5c380f00d8 10,20-21,67-74,81-82,89-104,107
+static/components/Modal.js
+  h_47bf5c380f00d8 5,37-39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "65a34419172ed79e59a98552803f1257a61559f9",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
