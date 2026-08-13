@@ -1,0 +1,16 @@
+static/components/Modal.html
+  h_47bf5c380f00d8 38
+static/components/UserFeedback.js
+  h_47bf5c380f00d8 80,84-93,109-110,116
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "de1edd0abcca8c98b5c3d594c46c2ae017e9c6ef",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
