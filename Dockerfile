@@ -6,6 +6,7 @@ COPY go.mod go.sum ./
 RUN go mod download && go mod verify
 RUN go install github.com/evanw/esbuild/cmd/esbuild@latest
 COPY . .
+RUN rm -rf static/test
 RUN sh scripts/build_prod.sh
 RUN go build -v -o /docs-feedback .
 
