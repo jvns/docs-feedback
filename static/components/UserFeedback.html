@@ -36,6 +36,9 @@
           Highlight some text to leave feedback!
         </p>
         <template v-for="feedback_item in feedbacks">
+          <!-- there are two of these Modals here and
+               rn we need to careful to edit both if one
+               changes, maybe refactor later -->
           <Modal v-if="active_feedback && active_feedback.id == feedback_item.id"
                  @modal-close="close"
                  @modal-submit="submit"
