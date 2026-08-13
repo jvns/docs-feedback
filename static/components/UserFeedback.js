@@ -106,6 +106,7 @@ export default {
       await this.sync();
       // Make sure "Saving..." shows for at least 250ms
       await sleep(250 - (Date.now() - nowMS));
+      this.modal_saving = false;
       this.active_feedback = undefined;
     },
   },
