@@ -77,11 +77,20 @@ export default {
       this.firstSyncDone = true;
     },
 
-    close() {
+    async close() {
       this.modal_error = undefined;
       this.modal_saving = false;
       this.active_feedback = undefined;
-      this.sync();
+      await this.sync();
+    },
+
+    async close_slow(start) {
+      // close slowly so it feels more like we're "really" saving
+      this.modal_error = undefined;
+      await this.sync();
+      await sleep(250 - (Date.now() - start));
+      this.modal_saving = false;
+      this.active_feedback = undefined;
     },
 
     async submit() {
@@ -97,17 +106,14 @@ export default {
           await pb.collection("feedback").create(this.active_feedback);
         }
       } catch (e) {
+        console.log(e);
+        // add a fake delay so it feels more like we're "trying" to save
         await sleep(500);
         this.modal_error = "Error saving feedback";
-        console.log(e);
         this.modal_saving = false;
         return;
       }
-      await this.sync();
-      // Make sure "Saving..." shows for at least 250ms
-      await sleep(250 - (Date.now() - nowMS));
-      this.modal_saving = false;
-      this.active_feedback = undefined;
+      await this.close_slow(nowMS);
     },
   },
 };

@@ -35,6 +35,7 @@
                id="name">
       </div>
       <textarea ref="content"
+                required
                 v-model="feedback.content"
                 v-bind:placeholder="icons[feedback.emoji].prompt"></textarea>
       <div v-if="modal_error"
