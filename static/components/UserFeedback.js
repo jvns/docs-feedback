@@ -7,7 +7,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export default {
   template: template,
-  props: ['doc_name'],
+  props: ["doc_name"],
   data() {
     return {
       document: undefined,
@@ -17,6 +17,8 @@ export default {
       hover_feedback: undefined,
       person_id: undefined,
       firstSyncDone: false,
+      modal_error: undefined,
+      modal_saving: false,
     };
   },
 
@@ -62,34 +64,47 @@ export default {
     },
     async sync() {
       this.person_id = localStorage.getItem("person_id");
-      this.feedbacks = (await pb.collection("feedback").getList(1, 200, {
-        filter: pb.filter(
-          "person_id = {:person_id} && document_id = {:document_id}",
-          { person_id: this.person_id, document_id: this.document.id },
-        ),
-      })).items;
+      this.feedbacks = (
+        await pb.collection("feedback").getList(1, 200, {
+          filter: pb.filter(
+            "person_id = {:person_id} && document_id = {:document_id}",
+            { person_id: this.person_id, document_id: this.document.id },
+          ),
+        })
+      ).items;
       this.feedbacks.sort((a, b) => a.selector[0].start - b.selector[0].start);
       window.getSelection().empty();
       this.firstSyncDone = true;
     },
 
     close() {
+      this.modal_error = undefined;
+      this.modal_saving = false;
       this.active_feedback = undefined;
       this.sync();
     },
 
     async submit() {
       const nowMS = Date.now();
-      if (this.active_feedback.id) {
-        await pb.collection("feedback").update(
-          this.active_feedback.id,
-          this.active_feedback,
-        );
-      } else {
-        await pb.collection("feedback").create(this.active_feedback);
+      this.modal_saving = true;
+      this.modal_error = undefined;
+      try {
+        if (this.active_feedback.id) {
+          await pb
+            .collection("feedback")
+            .update(this.active_feedback.id, this.active_feedback);
+        } else {
+          await pb.collection("feedback").create(this.active_feedback);
+        }
+      } catch (e) {
+        await sleep(500);
+        this.modal_error = "Error saving feedback";
+        console.log(e);
+        this.modal_saving = false;
+        return;
       }
       await this.sync();
-      // Make sure "Saving..." shows for at least 500ms
+      // Make sure "Saving..." shows for at least 250ms
       await sleep(250 - (Date.now() - nowMS));
       this.active_feedback = undefined;
     },

@@ -27,7 +27,9 @@
         <Modal v-if="active_feedback && !active_feedback.id"
                @modal-close="close"
                @modal-submit="submit"
-               v-bind:feedback="active_feedback"> </Modal>
+               :modal_error="modal_error"
+               :saving="modal_saving"
+               :feedback="active_feedback"> </Modal>
 
         <p v-if="feedbacks.length == 0 && !active_feedback"
            style="background: #ffdd9c">
@@ -37,7 +39,9 @@
           <Modal v-if="active_feedback && active_feedback.id == feedback_item.id"
                  @modal-close="close"
                  @modal-submit="submit"
-                 v-bind:feedback="active_feedback"> </Modal>
+                 :modal_error="modal_error"
+                 :saving="modal_saving"
+                 :feedback="active_feedback"> </Modal>
 
           <article v-else
                    role="button"

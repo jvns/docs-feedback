@@ -2,7 +2,7 @@ import template from "./Modal.html";
 
 export default {
   template: template,
-  props: ["feedback", "page_id", "admin"],
+  props: ["feedback", "saving", "page_id", "admin", "modal_error"],
   emits: ["modal-close", "modal-submit"],
   mounted: async function () {
     this.$el.focus();
@@ -17,14 +17,8 @@ export default {
     });
     observer.observe(this.$el, { childList: true, subtree: true });
   },
-  data() {
-    return {
-      saving: false,
-    };
-  },
   methods: {
     save() {
-      this.saving = true;
       this.$emit("modal-submit");
     },
     scrollIntoView() {
@@ -40,7 +34,9 @@ export default {
         return;
       }
       container.scrollBy({
-        top: rect.top - parentRect.top -
+        top:
+          rect.top -
+          parentRect.top -
           (container.clientHeight - rect.height) / 2,
         // behavior: "smooth",
       });
