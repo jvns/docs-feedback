@@ -42,7 +42,7 @@ func main() {
 			return adminTmpl.Execute(e.Response, map[string]string{"DocName": docName})
 		})
 
-		se.Router.GET("/feedback/{doc_name}", func(e *core.RequestEvent) error {
+		se.Router.GET("/doc/{doc_name}", func(e *core.RequestEvent) error {
 			docName := e.Request.PathValue("doc_name")
 			e.Response.Header().Set("Content-Type", "text/html")
 			return userFeedbackTmpl.Execute(e.Response, map[string]string{"DocName": docName})
