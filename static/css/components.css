@@ -298,8 +298,8 @@ body:has(dialog[open]) {
 .user-feedback-page {
   padding: 1rem;
   display: grid;
-  grid-template-columns: 600px 1fr;
-  max-width: 1000px;
+  grid-template-columns: 1fr 300px;
+  max-width: 1200px;
   margin: auto;
   gap: 1rem;
 

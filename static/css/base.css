@@ -1,12 +1,12 @@
 pre, code {
   /* make pre smaller than body because in some monospace fonts it looks too big
   otherwise */
-  font-size: var(--size-lg);
+  font-size: var(--size-base);
 }
 
 body {
-  font-size: var(--size-xl);
-  line-height: var(--line-height-xl);
+  font-size: var(--size-lg);
+  line-height: var(--line-height-lg);
   width: 100%;
   color: var(--yin-9);
 }
