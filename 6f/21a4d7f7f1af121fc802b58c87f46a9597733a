@@ -1,0 +1,14 @@
+README.md
+  h_47bf5c380f00d8 1-12,16,21-22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "6f21a4d7f7f1af121fc802b58c87f46a9597733a",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
