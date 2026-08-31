@@ -552,6 +552,16 @@ body:has(dialog[open]) {
     font-weight: bold;
   }
 
+  ol {
+    list-style-type: decimal;
+    padding-left: 2rem;
+  }
+
+  ul {
+    list-style-type: bullet;
+    padding-left: 2rem;
+  }
+
   p,
   h1,
   h2,
