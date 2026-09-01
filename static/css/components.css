@@ -47,6 +47,7 @@ article.feedback-item {
   overflow: hidden;
   border: 1px solid var(--gray-2);
   font-size: 1rem;
+  overflow: scroll;
 
   &:hover {
     background: var(--pink-1);
