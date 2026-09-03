@@ -58,6 +58,9 @@ export default {
         },
       ];
       this.$emit("update:active_feedback", util.toRecord(annotation));
+      const annotations = this.feedbacks.map(util.fromRecord);
+      annotations.push(annotation);
+      anno.setAnnotations(annotations, (replace = true));
     });
     this.set_feedbacks(this.feedbacks);
   },
