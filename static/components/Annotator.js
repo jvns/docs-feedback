@@ -59,9 +59,17 @@ export default {
       ];
       this.$emit("update:active_feedback", util.toRecord(annotation));
       const annotations = this.feedbacks.map(util.fromRecord);
-      annotations.push(annotation);
-      anno.setAnnotations(annotations, (replace = true));
+      anno.setAnnotations([annotation, ...annotations], (replace = true));
     });
+
+    anno.on('selectionChanged', annotations => {
+      const annos = this.feedbacks.map(util.fromRecord);
+      anno.setAnnotations([...annos, ...annotations], (replace = true));
+      if (annotations.length === 0) {
+        this.$emit("update:active_feedback", undefined);
+      }
+    });
+
     this.set_feedbacks(this.feedbacks);
   },
 
