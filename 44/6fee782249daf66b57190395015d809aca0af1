@@ -1,0 +1,14 @@
+LICENSE
+  h_47bf5c380f00d8 1-617
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "446fee782249daf66b57190395015d809aca0af1",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
