@@ -45,6 +45,21 @@ export default {
       user: { id: this.person_id },
     });
 
+    anno.setStyle((_annotation, state, _zIndex) => {
+      // the default style
+      const style = {
+        fill: "rgb(0, 128, 255)",
+        fillOpacity: 0.18,
+      };
+
+      // use purple instead to make it more visible
+      const selected_style = {
+        fill: "rgb(128, 0, 255)",
+        fillOpacity: 0.2,
+      };
+      return state.selected ? selected_style : style;
+    });
+
     anno.on("clickAnnotation", (annotation) => {
       this.$emit("update:active_feedback", util.toRecord(annotation));
     });
@@ -62,7 +77,7 @@ export default {
       anno.setAnnotations([annotation, ...annotations], (replace = true));
     });
 
-    anno.on('selectionChanged', annotations => {
+    anno.on("selectionChanged", (annotations) => {
       const annos = this.feedbacks.map(util.fromRecord);
       anno.setAnnotations([...annos, ...annotations], (replace = true));
       if (annotations.length === 0) {
