@@ -38,7 +38,7 @@ body>footer {
 }
 
 .admin .feedback-item {
-  max-height: 100%;
+  max-height: none;
 }
 
 article.feedback-item {
