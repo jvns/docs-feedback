@@ -1,0 +1,14 @@
+static/components/Annotator.js
+  h_47bf5c380f00d8 48-60,78
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "27fab1bc0dda291afde018dcc5d847f89cc25842",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
