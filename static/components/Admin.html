@@ -1,6 +1,6 @@
 <div>
   <AdminLogin v-if="!loggedIn" @logged-in="loggedIn = true"> </AdminLogin>
-  <div v-else class="user-feedback-page">
+  <div v-else class="user-feedback-page admin">
     <template v-if="document">
       <Annotator :document="document"
                  :feedbacks="feedbacks"
@@ -13,6 +13,7 @@
         <template v-for="feedback_item in feedbacks">
           <article role="button"
                    class="feedback-item"
+                   :class="{hovered: active_feedback?.id  == feedback_item?.id}"
                    @mouseenter="hover_feedback = feedback_item"
                    @mouseleave="hover_feedback = undefined"
                    @click="active_feedback = feedback_item; $refs.annotator.scrollTo(feedback_item.id)">

@@ -37,6 +37,10 @@ body>footer {
   padding: 1rem;
 }
 
+.admin .feedback-item {
+  max-height: 100%;
+}
+
 article.feedback-item {
   position: relative;
   margin: .5rem 0;
@@ -49,7 +53,7 @@ article.feedback-item {
   font-size: 1rem;
   overflow: scroll;
 
-  &:hover {
+  &:hover, &.hovered {
     background: var(--pink-1);
     border-color: var(--pink-1);
   }
