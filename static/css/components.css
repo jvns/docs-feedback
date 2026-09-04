@@ -46,6 +46,7 @@ article.feedback-item {
   margin: .5rem 0;
   padding: .25rem;
   max-height: 8rem;
+  white-space: pre-line;
   width: 100%;
   cursor: pointer;
   overflow: hidden;
