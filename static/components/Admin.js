@@ -21,6 +21,15 @@ export default {
     await this.sync();
   },
 
+  watch: {
+    active_feedback: function(new_feedback, _old_feedback) {
+      const elt = document.getElementById(new_feedback?.id);
+      if (elt) {
+        elt.scrollIntoView({'behavior': 'smooth', 'block': 'nearest'});
+      }
+    },
+  },
+
   methods: {
     async sync() {
       this.feedbacks = (await pb.collection("feedback").getList(1, 200, {

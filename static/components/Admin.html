@@ -13,6 +13,7 @@
         <template v-for="feedback_item in feedbacks">
           <article role="button"
                    class="feedback-item"
+                  :id="feedback_item.id"
                    :class="{hovered: active_feedback?.id  == feedback_item?.id}"
                    @mouseenter="hover_feedback = feedback_item"
                    @mouseleave="hover_feedback = undefined"
