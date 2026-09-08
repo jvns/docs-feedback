@@ -1,0 +1,14 @@
+migrations/1788891354_updated_feedback.go
+  h_47bf5c380f00d8 1-60
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "04fa0bd83c2875b153fa0d5f2de19b00d696dbcc",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
