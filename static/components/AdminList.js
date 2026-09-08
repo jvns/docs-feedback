@@ -33,6 +33,21 @@ export default {
         })
       ).items;
     },
+    async delete_doc(document) {
+      const feedbacks = (await pb.collection("feedback").getList(1, 200, {
+        filter: pb.filter(
+          "document_id = {:document_id}",
+          {document_id: document.id },
+        ),
+      })).items;
+      count = feedbacks.length;
+      result = confirm(`Are you sure you want to delete "${document.name}"? This will also delete ${count} feedback items.`)
+      if (!result) {
+        return
+      }
+      await pb.collection('documents').delete(document.id);
+      await this.sync();
+    },
     async create() {
       try {
         await pb.collection("documents").create({
