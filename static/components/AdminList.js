@@ -28,9 +28,7 @@ export default {
       this.newFeedbackCounts = await this.get_new_feedback_counts();
     },
     async get_documents() {
-      const docs = await pb.collection("documents").getFullList({
-        filter: pb.filter("user = {:id}", { id: pb.authStore.record.id }),
-      });
+      const docs = await pb.collection("documents").getFullList();
       return docs;
     },
 
