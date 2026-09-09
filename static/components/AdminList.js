@@ -14,10 +14,6 @@ export default {
     };
   },
 
-  async mounted() {
-    await this.sync();
-  },
-
   methods: {
     login() {
       this.loggedIn = true;
