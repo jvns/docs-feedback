@@ -1,0 +1,16 @@
+migrations/1788985955_updated_documents.go
+  h_47bf5c380f00d8 1-46
+static/components/AdminList.js
+  h_47bf5c380f00d8 31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "a343a46368269a6b8819f215f2928314e17e3fd3",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
