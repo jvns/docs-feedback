@@ -533,6 +533,21 @@ body:has(dialog[open]) {
   h2 {
     font-weight: bold;
   }
+  article {
+    position: relative;
+    .new {
+      position: absolute;
+      font-size: var(--size-xs);
+      background: var(--green-8);
+      color: white;
+      top: 0;
+      right: 0;
+      opacity: 75%;
+      border-radius: .25rem;
+      padding: .25rem;
+      line-height: 1;
+    }
+  }
 }
 
 .html {

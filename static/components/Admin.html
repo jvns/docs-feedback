@@ -19,6 +19,7 @@
                    @mouseleave="hover_feedback = undefined"
                    @click="active_feedback = feedback_item; $refs.annotator.scrollTo(feedback_item.id)">
 
+            <span class="new" v-if="feedback_item.updated > document.last_viewed">New</span>
             <span role="img" v-html="icons[feedback_item.emoji].emoji"> </span>
             {{feedback_item.expand?.person_id?.name}}:
             {{feedback_item.content}}
