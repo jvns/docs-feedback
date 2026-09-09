@@ -18,7 +18,10 @@ export default {
 
   async mounted() {
     this.document = await util.getDocument(this.doc_name);
-    await this.sync();
+    this.sync();
+    pb.collection('documents').update(this.document.id, {
+      last_viewed: new Date().toISOString(),
+    });
   },
 
   watch: {

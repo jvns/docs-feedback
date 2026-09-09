@@ -4,7 +4,11 @@
     <h2> Documents </h2>
     <div class="admin-doc">
       <template v-for="document in documents">
-        <label>{{document.name}}</label>
+        <label>{{document.name}}
+        <span class="new" v-if="newFeedbackCounts[document.id]">
+        ({{newFeedbackCounts[document.id]}} new)
+        </span>
+        </label>
         <a class="btn"
            :href="'/admin/' + document.name"
            style="background-color: var(--purple-4)">view feedback</a>

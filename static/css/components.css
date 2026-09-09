@@ -627,6 +627,9 @@ body {
     align-items: center;
     gap: .5rem;
     column-gap: 1rem;
+    .new {
+      color: var(--green-6);
+    }
   }
 
   h2 {
