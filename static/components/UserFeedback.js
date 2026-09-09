@@ -64,14 +64,13 @@ export default {
     },
     async sync() {
       this.person_id = localStorage.getItem("person_id");
-      this.feedbacks = (
-        await pb.collection("feedback").getList(1, 200, {
-          filter: pb.filter(
-            "person_id = {:person_id} && document_id = {:document_id}",
-            { person_id: this.person_id, document_id: this.document.id },
-          ),
-        })
-      ).items;
+      this.feedbacks = await pb.collection("feedback").getFullList({
+        person_id: this.person_id,
+        filter: pb.filter(
+          "person_id = {:person_id} && document_id = {:document_id}",
+          { person_id: this.person_id, document_id: this.document.id },
+        ),
+      });
       this.feedbacks.sort((a, b) => a.selector[0].start - b.selector[0].start);
       window.getSelection().empty();
       this.firstSyncDone = true;
