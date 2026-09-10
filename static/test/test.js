@@ -106,21 +106,23 @@ function sleep(ms) {
 
 QUnit.module("UserFeedback", function () {
   QUnit.test("document appears after login", async function (assert) {
+    assert.expect(0);
     await reset();
     const { div } = mountComponent('<userfeedback doc_name="test-doc" />');
-    await waitFor(() => div.queryByText(/Welcome to the Wizard Zines feedback site!/), assert);
+    await div.findByText(/Welcome to the Wizard Zines feedback site!/);
     const nameInput = div.getByLabelText("Name:");
     nameInput.value = "Test User";
     div.getByText("Continue").click();
-    await waitFor(() => div.queryByText(/Your comments/), assert);
-    await waitFor(() => div.queryByText(/This Is A Test Document/), assert);
+    await div.findByText(/Your comments/);
+    await div.findByText(/This Is A Test Document/);
   });
 
   QUnit.test("selecting text opens modal", async function (assert) {
+    assert.expect(0);
     await reset();
     await createPerson();
     const { div } = mountComponent('<userfeedback doc_name="test-doc" />');
-    await waitFor(() => div.queryByText(/This Is A Test Document/), assert);
+    await div.findByText(/This Is A Test Document/);
     const html = div.queryByText(/This Is A Test Document/);
     const selection = window.getSelection();
     selection.empty();
@@ -150,24 +152,26 @@ function adminLogin(div) {
 
 QUnit.module("AdminList", function () {
   QUnit.test("document list appears after login", async function (assert) {
+    assert.expect(0);
     await reset();
     const { div } = mountComponent("<adminlist />");
-    await waitFor(() => div.queryByText(/Username/), assert);
+    await div.findByText(/Username/);
 
     adminLogin(div)
 
-    await waitFor(() => div.queryByText(/Create new/), assert);
-    await waitFor(() => div.queryByText(/test-doc/), assert);
+    await div.findByText(/Create new/);
+    await div.findByText(/test-doc/);
   });
 });
 
 QUnit.module("Admin view feedback", function () {
   QUnit.test("feedback appears after login", async function (assert) {
+    assert.expect(0);
     await reset();
     const { div } = mountComponent("<admin doc_name='test-doc' />");
 
     adminLogin(div)
 
-    await waitFor(() => div.queryByText(/loved this section/), assert);
+    await div.findByText(/loved this section/);
   });
 });
