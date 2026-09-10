@@ -68,6 +68,10 @@ function mountComponent(template, data) {
   return { div: within(div), app, instance };
 }
 
+function reset() {
+  return fetch("/api/reset_test_data", { method: "POST" });
+}
+
 QUnit.module("Modal", function () {
   QUnit.test("placeholder text matches icon", function (assert) {
     const { div } = mountComponent(
@@ -80,8 +84,9 @@ QUnit.module("Modal", function () {
 
 QUnit.module("UserFeedback", function () {
   QUnit.test("document appears after login", async function (assert) {
+    await reset();
     const { div } = mountComponent(
-      '<userfeedback doc_name="git-pull" />',
+      '<userfeedback doc_name="test-doc" />',
     );
     await waitFor(() => div.queryByText(/Welcome to the Wizard Zines feedback site!/), assert);
     const nameInput = screen.getByLabelText("Name:");
@@ -89,6 +94,6 @@ QUnit.module("UserFeedback", function () {
     nameInput.dispatchEvent(new Event("input", { bubbles: true }));
     div.getByText("Continue").click();
     await waitFor(() => div.queryByText(/Your comments/), assert)
-    await waitFor(() => div.queryByText(/Fetch from and integrate/), assert)
+    await waitFor(() => div.queryByText(/This Is A Test Document/), assert)
   });
 });
