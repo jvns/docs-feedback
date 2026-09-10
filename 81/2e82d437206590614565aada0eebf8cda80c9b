@@ -1,0 +1,24 @@
+static/test/test.js
+  s_a45cce7b97baca::t_5d6197f0dba4e2 145,148
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "812e82d437206590614565aada0eebf8cda80c9b",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  },
+  "sessions": {
+    "s_a45cce7b97baca": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "893d1c9a-f74c-43ef-8099-d60c1bb7d8c1",
+        "model": "unknown"
+      },
+      "human_author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
