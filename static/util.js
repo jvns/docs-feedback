@@ -46,7 +46,7 @@ function fromRecord(record) {
 async function getDocument(name) {
   const doc = await pb
     .collection("documents")
-    .getFirstListItem(pb.filter("name={:name}", { name: name }));
+    .getFirstListItem(pb.filter(), {name: name});
   return doc;
 }
 
