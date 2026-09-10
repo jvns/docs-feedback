@@ -1,4 +1,4 @@
-const { within, screen } = TestingLibraryDom;
+const { within } = TestingLibraryDom;
 import * as Vue from "../js/vue.esm-browser.js";
 
 function StorageMock() {
@@ -10,7 +10,7 @@ function StorageMock() {
       storage[key] = value;
     },
     getItem: function (key) {
-      return key in storage ? storage[key] : null;
+      return storage[key];
     },
     removeItem: function (key) {
       delete storage[key];
@@ -85,15 +85,38 @@ QUnit.module("Modal", function () {
 QUnit.module("UserFeedback", function () {
   QUnit.test("document appears after login", async function (assert) {
     await reset();
-    const { div } = mountComponent(
-      '<userfeedback doc_name="test-doc" />',
-    );
+    const { div } = mountComponent('<userfeedback doc_name="test-doc" />');
     await waitFor(() => div.queryByText(/Welcome to the Wizard Zines feedback site!/), assert);
-    const nameInput = screen.getByLabelText("Name:");
+    const nameInput = div.getByLabelText("Name:");
     nameInput.value = "Test User";
-    nameInput.dispatchEvent(new Event("input", { bubbles: true }));
+    nameInput.dispatchEvent(new Event("input"));
     div.getByText("Continue").click();
-    await waitFor(() => div.queryByText(/Your comments/), assert)
-    await waitFor(() => div.queryByText(/This Is A Test Document/), assert)
+    await waitFor(() => div.queryByText(/Your comments/), assert);
+    await waitFor(() => div.queryByText(/This Is A Test Document/), assert);
+  });
+});
+
+function adminLogin(div) {
+    const usernameInput = div.getByLabelText(/Username/);
+    usernameInput.value = "test@example.com";
+    usernameInput.dispatchEvent(new Event("input"));
+
+    const passwordInput = div.getByLabelText(/Password/);
+    passwordInput.value = "testpassword123";
+    passwordInput.dispatchEvent(new Event("input"));
+
+    div.getByText("Login").click();
+}
+
+QUnit.module("AdminList", function () {
+  QUnit.test("document list appears after login", async function (assert) {
+    await reset();
+    const { div } = mountComponent("<adminlist />");
+    await waitFor(() => div.queryByText(/Username/), assert);
+
+    adminLogin(div)
+
+    await waitFor(() => div.queryByText(/Create new/), assert);
+    await waitFor(() => div.queryByText(/test-doc/), assert);
   });
 });
