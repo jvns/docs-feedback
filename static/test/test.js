@@ -135,6 +135,8 @@ QUnit.module("UserFeedback", function () {
     // if we don't manually trigger this pointerup  & down event, the annotator
     // library seems to ignore the selection event
     html.dispatchEvent(new PointerEvent('pointerup', { bubbles: true }));
+
+    // write some feedback
     await div.findByText(/I learned something/);
     div.getByText("I love this!").click();
     const loveInput = await div.findByPlaceholderText("What did you love?");
@@ -144,6 +146,11 @@ QUnit.module("UserFeedback", function () {
     const c = div.getByText("Add Comment")
     c.click();
     await waitFor(() => !div.queryByRole("dialog"), assert);
+
+    // check the admin view
+    const co = mountComponent("<admin doc_name='test-doc' />");
+    adminLogin(co.div)
+    await co.div.findByText(/bananas were great/);
   });
 });
 
