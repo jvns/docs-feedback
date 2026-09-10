@@ -38,6 +38,10 @@ Object.defineProperty(window, "localStorage", {
 });
 
 async function waitFor(fn, assert, timeout = 2000) {
+  // we're using this instead of testing library's built in
+  // WaitFor because this one retries when you return false
+  // and the testing library one requires you to throw an exception and I don't
+  // like that
   const start = Date.now();
   while (Date.now() - start < timeout) {
     const result = fn();
@@ -118,7 +122,6 @@ QUnit.module("UserFeedback", function () {
   });
 
   QUnit.test("selecting text opens modal", async function (assert) {
-    assert.expect(0);
     await reset();
     await createPerson();
     const { div } = mountComponent('<userfeedback doc_name="test-doc" />');
@@ -137,6 +140,10 @@ QUnit.module("UserFeedback", function () {
     const loveInput = await div.findByPlaceholderText("What did you love?");
     loveInput.value = "the bananas were great";
     div.getByText("Add Comment").click();    
+    loveInput.dispatchEvent(new Event("input"));
+    const c = div.getByText("Add Comment")
+    c.click();
+    await waitFor(() => !div.queryByRole("dialog"), assert);
   });
 });
 
