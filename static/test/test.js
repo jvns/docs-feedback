@@ -1,4 +1,4 @@
-const { within } = TestingLibraryDom;
+const { within, screen } = TestingLibraryDom;
 import * as Vue from "../js/vue.esm-browser.js";
 
 function StorageMock() {
@@ -78,29 +78,17 @@ QUnit.module("Modal", function () {
   });
 });
 
-// const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-QUnit.module("UserFeedback", function (hooks) {
-  hooks.beforeEach(function () {
-    const r = (Math.random() + 1).toString(36).substring(7);
-    localStorage.setItem("person_id", r);
-  });
-
-  QUnit.test("component renders", function (assert) {
+QUnit.module("UserFeedback", function () {
+  QUnit.test("document appears after login", async function (assert) {
     const { div } = mountComponent(
-      "<userfeedback />",
-      {},
+      '<userfeedback doc_name="git-pull" />',
     );
-    assert.ok(div.getByText("Your comments"));
+    await waitFor(() => div.queryByText(/Welcome to the Wizard Zines feedback site!/), assert);
+    const nameInput = screen.getByLabelText("Name:");
+    nameInput.value = "Test User";
+    nameInput.dispatchEvent(new Event("input", { bubbles: true }));
+    div.getByText("Continue").click();
+    await waitFor(() => div.queryByText(/Your comments/), assert)
+    await waitFor(() => div.queryByText(/Fetch from and integrate/), assert)
   });
-
-  QUnit.test("document text appears", async function (assert) {
-    const { div } = mountComponent(
-      "<userfeedback />",
-      {},
-    );
-    // console.log(document.getElementById("qunit-fixture").innerHTML);
-    await waitFor(() => div.queryByText(/name of a remote repository/), assert);
-  });
-
 });

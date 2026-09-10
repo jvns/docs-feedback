@@ -63,6 +63,9 @@ export default {
       await this.setupAnnotator();
     },
     async sync() {
+      if (!this.document) {
+        await this.getDocument();
+      }
       this.person_id = localStorage.getItem("person_id");
       this.feedbacks = await pb.collection("feedback").getFullList({
         person_id: this.person_id,
