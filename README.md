@@ -10,6 +10,19 @@ It's heavily inspired by [help this book](https://helpthisbook.com/), but with s
 
 It's a Vue single page app that uses [Pocketbase](https://pocketbase.io/) as the backend.
 
+### How to update Pocketbase
+
+```
+# how to update Go code:
+# Update go.mod with new version, then run:
+go mod tidy
+
+# how to update js bindings:
+npm install pocketbase
+cp node_modules/pocketbase/dist/pocketbase.umd.js static/js/
+cp node_modules/pocketbase/dist/pocketbase.umd.js.map static/js/
+```
+
 ### LLM policy & disclosure
 
 My goal is to keep my own LLM usage for this project to
