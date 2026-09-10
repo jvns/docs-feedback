@@ -1,0 +1,20 @@
+README.md
+  h_47bf5c380f00d8 22-23
+static/js/pocketbase.es.js
+  h_47bf5c380f00d8 1-2
+static/js/pocketbase.es.js.map
+  h_47bf5c380f00d8 1
+static/util.js
+  h_47bf5c380f00d8 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "4c919843b86b9be0590e3d4fb75b1ab4b0db6bd1",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
