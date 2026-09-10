@@ -1,4 +1,4 @@
-import PocketBase from "./js/pocketbase.umd.js";
+import PocketBase from "./js/pocketbase.es.js";
 
 function get_pocketbase() {
   if (window.location.hostname == "localhost") {

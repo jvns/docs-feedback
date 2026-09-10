@@ -19,8 +19,8 @@ go mod tidy
 
 # how to update js bindings:
 npm install pocketbase
-cp node_modules/pocketbase/dist/pocketbase.umd.js static/js/
-cp node_modules/pocketbase/dist/pocketbase.umd.js.map static/js/
+cp node_modules/pocketbase/dist/pocketbase.es.js static/js/
+cp node_modules/pocketbase/dist/pocketbase.es.js.map static/js/
 ```
 
 ### LLM policy & disclosure
