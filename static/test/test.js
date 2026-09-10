@@ -93,7 +93,6 @@ QUnit.module("UserFeedback", function () {
     await waitFor(() => div.queryByText(/Welcome to the Wizard Zines feedback site!/), assert);
     const nameInput = div.getByLabelText("Name:");
     nameInput.value = "Test User";
-    nameInput.dispatchEvent(new Event("input"));
     div.getByText("Continue").click();
     await waitFor(() => div.queryByText(/Your comments/), assert);
     await waitFor(() => div.queryByText(/This Is A Test Document/), assert);
@@ -103,11 +102,9 @@ QUnit.module("UserFeedback", function () {
 function adminLogin(div) {
     const usernameInput = div.getByLabelText(/Username/);
     usernameInput.value = "test@example.com";
-    usernameInput.dispatchEvent(new Event("input"));
 
     const passwordInput = div.getByLabelText(/Password/);
     passwordInput.value = "testpassword123";
-    passwordInput.dispatchEvent(new Event("input"));
 
     div.getByText("Login").click();
 }
