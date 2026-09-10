@@ -96,6 +96,17 @@ QUnit.module("UserFeedback", function () {
     div.getByText("Continue").click();
     await waitFor(() => div.queryByText(/Your comments/), assert);
     await waitFor(() => div.queryByText(/This Is A Test Document/), assert);
+
+    /* select text */
+    const html = div.queryByText(/This Is A Test Document/);
+    const selection = window.getSelection();
+    selection.empty();
+    html.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true }));
+    selection.selectAllChildren(html);
+    // if we don't manually trigger this pointerup  & down event, the annotator
+    // library seems to ignore the selection event
+    html.dispatchEvent(new PointerEvent('pointerup', { bubbles: true }));
+    await waitFor(() => div.queryByText(/I learned something/), assert);
   });
 });
 
