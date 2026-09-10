@@ -142,10 +142,10 @@ QUnit.module("UserFeedback", function () {
 
 function adminLogin(div) {
     const usernameInput = div.getByLabelText(/Username/);
-    usernameInput.value = "test@example.com";
+    usernameInput.value = testEmail;
 
     const passwordInput = div.getByLabelText(/Password/);
-    passwordInput.value = "testpassword123";
+    passwordInput.value = testPassword;
 
     div.getByText("Login").click();
 }
