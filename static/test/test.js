@@ -61,7 +61,7 @@ const testFeedback = {
   selector: [{ start: 0, end: 10 }],
 };
 
-function mountComponent(template, data) {
+function mountComponent(template, data = {}) {
   const app = Vue.createApp({
     template: template,
     data: () => data,
