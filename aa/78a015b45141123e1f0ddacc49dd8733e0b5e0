@@ -1,0 +1,14 @@
+static/test/test.js
+  h_47bf5c380f00d8 10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "aa78a015b45141123e1f0ddacc49dd8733e0b5e0",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
