@@ -1,0 +1,22 @@
+README.md
+  h_47bf5c380f00d8 13-25
+go.mod
+  h_47bf5c380f00d8 3,5,14,20,28-30,34-36,38-39
+go.sum
+  h_47bf5c380f00d8 19-20,30-31,44-45,54-55,70-71,74-75,77-80,82-83,93-94,96-97,102-105,116-117,120-121,126-127
+static/js/pocketbase.umd.js
+  h_47bf5c380f00d8 1
+static/js/pocketbase.umd.js.map
+  h_47bf5c380f00d8 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "834f81015f4623dbb582f167ca339a65b7e1f623",
+  "prompts": {},
+  "humans": {
+    "h_47bf5c380f00d8": {
+      "author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
