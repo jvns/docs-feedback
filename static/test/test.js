@@ -1,5 +1,6 @@
 const { within } = TestingLibraryDom;
 import * as Vue from "../js/vue.esm-browser.js";
+import { pb } from "../util.js";
 
 function StorageMock() {
   // from https://stackoverflow.com/a/26177872
@@ -86,6 +87,23 @@ QUnit.module("Modal", function () {
   });
 });
 
+
+const testEmail = "test@example.com"
+const testPassword = "testpassword123"
+const testPersonName = "Test Person"
+const testDocName = "test-doc"
+
+async function createPerson() {
+  const record = await pb.collection("people").create({
+    name: testPersonName,
+  });
+  fakeStorage.setItem("person_id", record.id);
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 QUnit.module("UserFeedback", function () {
   QUnit.test("document appears after login", async function (assert) {
     await reset();
@@ -96,17 +114,27 @@ QUnit.module("UserFeedback", function () {
     div.getByText("Continue").click();
     await waitFor(() => div.queryByText(/Your comments/), assert);
     await waitFor(() => div.queryByText(/This Is A Test Document/), assert);
+  });
 
-    /* select text */
+  QUnit.test("selecting text opens modal", async function (assert) {
+    await reset();
+    await createPerson();
+    const { div } = mountComponent('<userfeedback doc_name="test-doc" />');
+    await waitFor(() => div.queryByText(/This Is A Test Document/), assert);
     const html = div.queryByText(/This Is A Test Document/);
     const selection = window.getSelection();
     selection.empty();
     html.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true }));
+    await sleep(20);
     selection.selectAllChildren(html);
     // if we don't manually trigger this pointerup  & down event, the annotator
     // library seems to ignore the selection event
     html.dispatchEvent(new PointerEvent('pointerup', { bubbles: true }));
-    await waitFor(() => div.queryByText(/I learned something/), assert);
+    await div.findByText(/I learned something/);
+    div.getByText("I love this!").click();
+    const loveInput = await div.findByPlaceholderText("What did you love?");
+    loveInput.value = "the bananas were great";
+    div.getByText("Add Comment").click();    
   });
 });
 
