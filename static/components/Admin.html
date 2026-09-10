@@ -1,5 +1,5 @@
 <div>
-  <AdminLogin v-if="!loggedIn" @logged-in="loggedIn = true"> </AdminLogin>
+  <AdminLogin v-if="!loggedIn" @logged-in="login()"> </AdminLogin>
   <div v-else class="user-feedback-page admin">
     <template v-if="document">
       <Annotator :document="document"

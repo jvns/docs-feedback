@@ -16,14 +16,6 @@ export default {
     };
   },
 
-  async mounted() {
-    this.document = await util.getDocument(this.doc_name);
-    pb.collection('documents').update(this.document.id, {
-      last_viewed: new Date().toISOString(),
-    });
-    await this.sync();
-  },
-
   watch: {
     active_feedback: function(new_feedback, _old_feedback) {
       const elt = document.getElementById(new_feedback?.id);
@@ -34,6 +26,14 @@ export default {
   },
 
   methods: {
+    async login() {
+      this.loggedIn = true;
+      this.document = await util.getDocument(this.doc_name);
+      pb.collection('documents').update(this.document.id, {
+        last_viewed: new Date().toISOString(),
+      });
+      await this.sync();
+    },
     async sync() {
       this.feedbacks = (await pb.collection("feedback").getList(1, 200, {
         filter: pb.filter("document_id = {:id}", { id: this.document.id }),

@@ -22,6 +22,9 @@ function StorageMock() {
       const keys = Object.keys(storage);
       return keys[i] || null;
     },
+    clear: function() {
+      storage = {};
+    },
   };
 }
 
@@ -69,6 +72,7 @@ function mountComponent(template, data) {
 }
 
 function reset() {
+  fakeStorage.clear();
   return fetch("/api/reset_test_data", { method: "POST" });
 }
 
@@ -118,5 +122,16 @@ QUnit.module("AdminList", function () {
 
     await waitFor(() => div.queryByText(/Create new/), assert);
     await waitFor(() => div.queryByText(/test-doc/), assert);
+  });
+});
+
+QUnit.module("Admin view feedback", function () {
+  QUnit.test("feedback appears after login", async function (assert) {
+    await reset();
+    const { div } = mountComponent("<admin doc_name='test-doc' />");
+
+    adminLogin(div)
+
+    await waitFor(() => div.queryByText(/loved this section/), assert);
   });
 });
