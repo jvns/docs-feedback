@@ -1,0 +1,27 @@
+static/components/Admin.js
+  s_f6a70751ef6412::t_9dfc2f32c34ebc 19,38
+static/components/AdminLogin.js
+  s_f6a70751ef6412::t_9dfc2f32c34ebc 3,16,24,43
+static/util.js
+  s_f6a70751ef6412::t_9dfc2f32c34ebc 45-46,53
+static/components/UserFeedback.js
+  s_f6a70751ef6412::t_9dfc2f32c34ebc 57,66,100
+static/components/AdminList.js
+  s_f6a70751ef6412::t_9dfc2f32c34ebc 30,36,55,74
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "9d5be2047685deefdbcbeb2d9093b74ad9c07561",
+  "prompts": {},
+  "sessions": {
+    "s_f6a70751ef6412": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a521f080-3d83-4109-bf47-b0942e2f778a",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Julia Evans <julia@jvns.ca>"
+    }
+  }
+}
