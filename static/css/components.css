@@ -557,6 +557,8 @@ body:has(dialog[open]) {
 
   pre {
     white-space: pre-wrap;
+    background: var(--gray-1);
+    padding: .5rem;
   }
 
   &>*:first-child {
