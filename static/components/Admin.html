@@ -10,6 +10,9 @@
                  v-model:hover_feedback="hover_feedback">
       </Annotator>
       <section class="comments">
+        <p v-if="num_comments > 0">
+        {{num_comments}} comments from {{num_people}} people
+        </p>
         <template v-for="feedback_item in feedbacks">
           <article role="button"
                    class="feedback-item"

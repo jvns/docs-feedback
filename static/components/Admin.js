@@ -25,6 +25,20 @@ export default {
     },
   },
 
+  computed: {
+    num_comments: function() {
+      return this.feedbacks.length;
+    },
+    num_people: function() {
+      const people = new Set([]);
+      for (const f of this.feedbacks) {
+        const id = f.expand?.person_id?.id
+        people.add(id);
+      }
+      return people.size;
+    },
+  },
+
   methods: {
     async login() {
       this.loggedIn = true;
