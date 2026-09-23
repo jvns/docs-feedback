@@ -54,7 +54,8 @@ article.feedback-item {
   font-size: 1rem;
   overflow: scroll;
 
-  &:hover, &.hovered {
+  &:hover,
+  &.hovered {
     background: var(--pink-1);
     border-color: var(--pink-1);
   }
@@ -533,8 +534,10 @@ body:has(dialog[open]) {
   h2 {
     font-weight: bold;
   }
+
   article {
     position: relative;
+
     .new {
       position: absolute;
       font-size: var(--size-xs);
@@ -644,6 +647,7 @@ body {
     align-items: center;
     gap: .5rem;
     column-gap: 1rem;
+
     .new {
       color: var(--green-6);
     }
